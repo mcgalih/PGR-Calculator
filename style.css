@@ -21,19 +21,67 @@
 
 :root {
     --select-border: #777;
+    --color-red-dark:#940000;
+    --color-red:#c30101;
 }
 
+.dont_show { display: none; }
+.show { display: block; }
 .font-reg { font-family: orbitron-reg; }
 .font-med { font-family: orbitron-med; }
 .font-bold { font-family: orbitron-bold; }
 
 body {
+    margin: 0;
     background-color:#111111;
     color: white;
 }
 
-.dont_show { display: none; }
-.show { display: block; }
+.title {
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    background-color: #1f1f1f;
+}
+
+.header {
+    font-size: larger;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--color-red-dark);
+}
+
+.skew-rect {
+    width: 6px;
+	height: 10px;
+    margin-left: 15px;
+	transform: skew(-40deg);
+    background-color: var(--color-red);
+    border: 0;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-red);
+    margin-left: 10px;
+}
+
+.hr-line {
+    width: 70px;
+    height: 2px;
+    margin-left: 5px;
+    background-color: var(--color-red);
+}
+
+.head-img {
+    width: 50px;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 #lvl_input{
     width: 100%;

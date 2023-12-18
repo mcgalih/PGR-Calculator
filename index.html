@@ -8,14 +8,23 @@
 </head>
 
 <body>
-    <H3 class="font-med">PGR CALCULATOR</H3>
+    <div class="title font-med">
+        <div class="header">PGR CALCULATOR</div>
+        <div class="skew-rect"></div>
+        <div class="dot"></div>
+        <div class="hr-line"></div>
+    </div>
     <div class="construct">
-        <div class="item-head">CURRENT LEVEL</div>
+        <div class="head font-med">
+            <img src="img/icon_construct.png" alt="PGR construct" class="head-img">
+            <div class="head-title">CONSTRUCT</div>
+        </div>
+        <div class="item font-reg">CURRENT LEVEL :</div>
         <input id="lvl_input" type="range" min="1" max="80" value="1"/>
         <span id="show_lvl_input"></span>
         <script src="js/show_charlvl.js"></script>
 
-        <div class="item-head">CURRENT RANK</div>
+        <div class="item font-reg">CURRENT RANK</div>
         <select id="rank_option" class="select select--multiple" name="rank_option" multiple>
             <option value="1">PRIVATE</option>
             <option value="2">SERGEANT 1</option>

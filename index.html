@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="js/char_lvl.js"></script>
     <title>Document</title>
 </head>
+
 <body>
+    <H3 class="font-med">PGR CALCULATOR</H3>
     <div class="construct">
-        construct
-        <div class="level">Level</div>
-        <div class="Promotion">Promotion</div>
+        <div class="item-head">CURRENT LEVEL</div>
+        <input id="lvl_input" type="range" min="1" max="80" value="1"/>
+        <span id="show_lvl_input"></span>
+        <script src="js/show_charlvl.js"></script>
+
+        <div class="item-head">CURRENT RANK</div>
+        <select id="rank_option" class="select select--multiple" name="rank_option" multiple>
+            <option value="1">PRIVATE</option>
+            <option value="2">SERGEANT 1</option>
+            <option value="3">SERGEANT 2</option>
+            <option value="4">ELITE 1</option>
+            <option value="5">ELITE 2</option>
+            <option value="6">ELITE 3</option>
+            <option value="7">TASK FORCE 1</option>
+            <option value="8">TASK FORCE 2</option>
+            <option value="9">TASK FORCE 3</option>
+            <option value="10">TRUMP 1</option>
+            <option value="11">TRUMP 2</option>
+            <option value="12">TRUMP 3</option>
+            <option value="13">TRUMP 4</option>
+            <option value="14">HERO</option>
+        </select>
+
         <div class="skill">Skill</div>
         <div class="memory">Memory</div>
-        
+
+        <button onclick="calculate()"> CALCULATE </button>
+
+        <div id="construct_result">
+            Result
+            <div id="exp_pod">
+                Exp Pod = <span id="exp_pod_item"></span>
+            </div>
+            <div id="rank_cogs">
+                Total Cogs = <span id="total_cogs"></span>
+            </div>
+
+        </div>
+        <script src="js/construct.js"></script>
     </div>
 
     <div class="weapon">weapon</div>

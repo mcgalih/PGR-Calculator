@@ -1,0 +1,66 @@
+@font-face {
+    font-family: orbitron-reg;
+    src: url("font/Orbitron-Regular.ttf");
+}
+
+@font-face {
+    font-family: orbitron-med;
+    src: url("font/Orbitron-Medium.ttf");
+}
+
+@font-face {
+    font-family: orbitron-bold;
+    src: url("font/Orbitron-Bold.ttf");
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --select-border: #777;
+}
+
+.font-reg { font-family: orbitron-reg; }
+.font-med { font-family: orbitron-med; }
+.font-bold { font-family: orbitron-bold; }
+
+body {
+    background-color:#111111;
+    color: white;
+}
+
+.dont_show { display: none; }
+.show { display: block; }
+
+#lvl_input{
+    width: 100%;
+}
+
+/* reset style of select */
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+.select {
+    border: 1px solid steelblue;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    padding-right: 0;
+}
+
+#construct_result{
+    display: none;
+}

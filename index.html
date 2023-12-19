@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=
-    "PGR CALCULATOR is a tool to calculate material resources from a video games : Punishing Gray Raven 
-    by Kuro Games"
-    >
+    <meta name="description" content="PGR CALCULATOR is a tool to calculate material resources from a video games : Punishing Gray Raven 
+    by Kuro Games">
+    <link rel="icon" href="//cdnstatic.kurogame.net/h5_manage_dist/pgr_website2.0/favicon.png">
     <link rel="stylesheet" href="style.css">
     <title>PGR CALCULATOR</title>
 </head>
 
 <body>
-    <div class="title font-med">
-        <div class="header">PGR CALCULATOR</div>
-        <div class="skew-rect"></div>
-        <div class="dot"></div>
-        <div class="hr-line"></div>
-    </div>
+    <header>
+        <nav>
+            <div class="navbar-title">
+                <div class="navbar-text font-type-med font-size-large">PGR CALCULATOR</div>
+                <div class="skew-rect"></div>
+                <div class="dot"></div>
+                <div class="hr-line"></div>
+            </div>
+            <div class="hamb-icon" onclick="toggleMobileMenu()">
+                <div class="hamb-line"></div>
+                <div class="hamb-line"></div>
+                <div class="hamb-line"></div>
+            </div>
+        </nav>
+        <div id="hamb-menu" class="font-body font-size-med dont_show">
+            <ul>
+                <li class="hamb-list">Construct</li>
+                <li class="hamb-list">Weapon</li>
+                <li class="hamb-list">Cub</li>
+            </ul>
+        </div>
+        <script src="js/navbar.js"></script>
+    </header>
+
     <div class="construct">
-        <div class="head font-med">
+        <div class="head">
             <div class="head-line"></div>
             <div class="head-line"></div>
             <img src="img/icon_construct.png" alt="PGR construct" class="head-img">
-            <div class="head-title">CONSTRUCT</div>
+            <div class="head-title font-type-med">CONSTRUCT</div>
         </div>
         <div class="item font-reg">CURRENT LEVEL :</div>
-        <input id="lvl_input" type="range" min="1" max="80" value="1"/>
+        <input id="lvl_input" type="range" min="1" max="80" value="1" />
         <div id="show_lvl_input"></div>
         <script src="js/show_charlvl.js"></script>
 
@@ -69,4 +87,5 @@
     <div class="weapon">weapon</div>
     <div class="cub">cub</div>
 </body>
+
 </html>

@@ -13,50 +13,108 @@
     src: url("font/Orbitron-Bold.ttf");
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-    --select-border: #777;
-    --color-red-dark:#940000;
-    --color-red:#c30101;
-    --color-red-light:#ff0000;
+    --color-bg: #111111;
+    --color-gray: #1f1f1f;
+    --color-gray-light: #252525;
+    --color-red-dark: #940000;
+    --color-red: #c30101;
+    --color-red-light: #ff0000;
 }
 
 .dont_show { display: none; }
 .show { display: block; }
-.font-reg { font-family: orbitron-reg; }
-.font-med { font-family: orbitron-med; }
-.font-bold { font-family: orbitron-bold; }
+.font-type-reg { font-family: orbitron-reg; }
+.font-type-med { font-family: orbitron-med; }
+.font-type-bold { font-family: orbitron-bold; }
+.font-body { font-family: Calibri;}
+.font-size-med { font-size: medium; }
+.font-size-large { font-size: large; }
+.font-size-larger { font-size: larger; }
 
 body {
-    margin: 0;
-    background-color:#111111;
+    background-color: var(--color-bg);
     color: white;
     overflow-x: hidden;
 }
 
-.title {
+/* ===================== NAVBAR ==================== */
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray);
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header ul{
+    list-style-type: none;
+}
+
+.hamb-icon {
+    height: auto;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 4%;
+    cursor: pointer;
+}
+
+.hamb-line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+.hamb-line:nth-child(1) {
+}
+.hamb-line:nth-child(2) {
+    margin: 5px 0;
+}
+.hamb-line:nth-child(3) {
+}
+
+#hamb-menu {
+    background-color: var(--color-gray-light);
+}
+
+.hamb-list {
+    padding: 15px 0 15px 15px;
+}
+
+.hamb-list:hover {
+    cursor: pointer;
+    color: var(--color-red-light);
+}
+
+.navbar-title {
     padding: 10px 10px;
     display: flex;
     align-items: center;
-    background-color: #1f1f1f;
 }
 
-.header {
-    font-size: larger;
+.navbar-text {
     padding-bottom: 2px;
     border-bottom: 2px solid var(--color-red-dark);
 }
 
 .skew-rect {
     width: 6px;
-	height: 10px;
+    height: 10px;
     margin-left: 15px;
-	transform: skew(-40deg);
+    transform: skew(-40deg);
     background-color: var(--color-red);
     border: 0;
 }
@@ -69,11 +127,13 @@ body {
 }
 
 .hr-line {
-    width: 70px;
+    width: 30px;
     height: 2px;
     margin-left: 5px;
     background-color: var(--color-red);
 }
+
+/* =================================================== */
 
 .head {
     display: flex;
@@ -106,7 +166,7 @@ body {
     color: var(--color-red-light);
 }
 
-#lvl_input{
+#lvl_input {
     width: 100%;
 }
 
@@ -132,7 +192,7 @@ select {
     padding-right: 0;
 }
 
-#construct_result{
+#construct_result {
     display: none;
 }
 

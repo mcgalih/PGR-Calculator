@@ -273,7 +273,7 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     /* creating a custom design */
-    width: 90%;
+    width: 80%;
     cursor: pointer;
     outline: none;
     border-radius: 15px;
@@ -287,8 +287,8 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     /* creating a custom design */
-    height: 15px;
-    width: 15px;
+    height: 25px;
+    width: 25px;
     background-color: var(--color-red-light);
     border-radius: 50%;
     border: none;
@@ -298,8 +298,8 @@ input[type="range"]::-webkit-slider-thumb {
 /* Thumb: firefox */
 input[type="range"]::-moz-range-thumb {
     /* creating a custom design */
-    height: 15px;
-    width: 15px;
+    height: 25px;
+    width: 25px;
     background-color: var(--color-red-light);
     border-radius: 50%;
     border: none;
@@ -327,8 +327,13 @@ input[type="range"]:active::-moz-range-thumb {
 .input-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+.slider-arrow {
+    
 }
 
 /* reset style of select */

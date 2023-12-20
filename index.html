@@ -49,7 +49,9 @@
         </div>
         
         <div class="input-wrapper">
-            <input id="lvl_input" type="range" min="1" max="80" value="1" />
+            <button id="lvl_dec" type="button" class="slider-arrow" onclick="decreaseValue()">&lt;</button>
+            <input id="lvl_input" type="range" min="1" max="80" value="1" step="1"/>
+            <button id="lvl_inc" type="button" class="slider-arrow" onclick="increaseValue()">&gt;</button>
         </div>
         
         <script src="js/show_charlvl.js"></script>

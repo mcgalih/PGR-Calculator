@@ -206,7 +206,9 @@ header ul {
     padding-top: 60px;
 }
 
-#menu-weapon, #menu-cub {
+/* initial display */
+#menu-weapon, #menu-cub, #menu-about,
+#exp_pod, #rank_cogs, #result {
     display: none;
 }
 
@@ -265,10 +267,6 @@ select {
     font-size: 10px;
     cursor: pointer;
     padding-right: 0;
-}
-
-#construct_result {
-    display: none;
 }
 
 /* @media (min-width: 600px) {

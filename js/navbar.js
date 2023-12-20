@@ -57,10 +57,12 @@ function MenuAbout() {
     let menu_weapon = document.getElementById("menu-weapon");
     let menu_cub = document.getElementById("menu-cub");
     let menu_about = document.getElementById("menu-about");
+    let menu_result = document.getElementById("result");
     hamb_menu.classList.toggle("open");
     hamb_icon.classList.toggle("open");
     menu_construct.style.display = "none";
     menu_weapon.style.display = "none";
     menu_cub.style.display = "none";
     menu_about.style.display = "block";
+    menu_result.style.display = "none";
 }

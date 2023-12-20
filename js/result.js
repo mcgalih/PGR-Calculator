@@ -38,7 +38,7 @@ function round_up(pembilang, penyebut) {
 function calculate() {
     var lvl_start = parseInt(document.querySelector('#lvl_input').value);
     var rankval = parseInt(document.querySelector('#rank_option').value);
-    var result_view = document.getElementById("construct_result");
+    var result_view = document.getElementById("result");
     var exp_pod_view = document.getElementById("exp_pod");
     var total_cogs_view = document.getElementById("rank_cogs");
 
@@ -67,7 +67,6 @@ function calculate() {
         total_cogs_view.style.display = "block";
         document.querySelector('#total_cogs').textContent = cogs_needed;
     }
-
     // reset
     exp_needed = 0;
     cogs_needed = 0;

@@ -250,7 +250,7 @@ header ul {
 /* reset style of select */
 select {
     appearance: none;
-    background-color: transparent;
+    /* background-color: transparent; */
     border: none;
     padding: 0 1em 0 0;
     margin: 0;
@@ -263,8 +263,6 @@ select {
 
 .select {
     border: 1px solid steelblue;
-    color: white;
-    font-size: 10px;
     cursor: pointer;
     padding-right: 0;
 }

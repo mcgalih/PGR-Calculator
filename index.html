@@ -36,19 +36,27 @@
         <script src="js/navbar.js"></script>
     </header>
 
-    <div id="menu-construct" class="menu-section">
+    <div id="menu-construct" class="menu-section font-body">
         <div class="head">
             <div class="head-line"></div>
             <div class="head-line"></div>
             <img src="img/icon_construct.png" alt="PGR construct" class="head-img">
             <div class="head-title font-type-med">CONSTRUCT</div>
         </div>
-        <div class="item font-reg">CURRENT LEVEL :</div>
-        <input id="lvl_input" type="range" min="1" max="80" value="1" />
-        <div id="show_lvl_input"></div>
+        <div class="input-title">
+            Current Level :
+            <span id="show_lvl_input" style="margin-left: 10px;"></span>
+        </div>
+        
+        <div class="input-wrapper">
+            <input id="lvl_input" type="range" min="1" max="80" value="1" />
+        </div>
+        
         <script src="js/show_charlvl.js"></script>
 
-        <div class="item font-reg">CURRENT RANK</div>
+        <div class="input-title">
+            Current Rank :
+        </div>
         <select id="rank_option" class="select select--multiple" name="rank_option">
             <option value="1">PRIVATE</option>
             <option value="2">SERGEANT 1</option>
@@ -73,7 +81,7 @@
 
     </div>
 
-    <div id="menu-weapon" class="menu-section">
+    <div id="menu-weapon" class="menu-section font-body">
         <div class="head">
             <div class="head-line"></div>
             <div class="head-line"></div>
@@ -87,7 +95,7 @@
 
     </div>
 
-    <div id="menu-cub" class="menu-section">
+    <div id="menu-cub" class="menu-section font-body">
         <div class="head">
             <div class="head-line"></div>
             <div class="head-line"></div>
@@ -101,7 +109,7 @@
 
     </div>
 
-    <div id="menu-about" class="menu-section">
+    <div id="menu-about" class="menu-section font-body">
         <div class="head">
             <div class="head-line"></div>
             <div class="head-line"></div>

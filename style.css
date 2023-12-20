@@ -13,6 +13,11 @@
     src: url("font/Orbitron-Bold.ttf");
 }
 
+@font-face {
+    font-family: plusjakartasans;
+    src: url("font/PlusJakartaSans-Regular.ttf");
+}
+
 *,
 *::before,
 *::after {
@@ -55,7 +60,7 @@
 }
 
 .font-body {
-    font-family: Calibri;
+    font-family: plusjakartasans;
 }
 
 .font-size-med {
@@ -122,7 +127,8 @@ header ul {
     margin: 5px 0;
 }
 
-.hamb-line:nth-child(1), .hamb-line:nth-child(3) {
+.hamb-line:nth-child(1),
+.hamb-line:nth-child(3) {
     top: 0;
 }
 
@@ -203,12 +209,23 @@ header ul {
 /* =================================================== */
 
 .menu-section {
+    display: flex;
+    flex-direction: column;
     padding-top: 60px;
+    margin: 0 5%;
+}
+
+#result {
+    margin: 10px 5%;
 }
 
 /* initial display */
-#menu-weapon, #menu-cub, #menu-about,
-#exp_pod, #rank_cogs, #result {
+#menu-weapon,
+#menu-cub,
+#menu-about,
+#exp_pod,
+#rank_cogs,
+#result {
     display: none;
 }
 
@@ -227,7 +244,6 @@ header ul {
 .head-line {
     width: 7px;
     height: 50px;
-    margin-left: 10px;
     margin-right: 3px;
     background-color: var(--color-red-dark);
 }
@@ -243,8 +259,76 @@ header ul {
     color: var(--color-red-light);
 }
 
-#lvl_input {
-    width: 100%;
+.input-title {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+/* ========== construct level input =============== */
+
+input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 90%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    height: 6px;
+    background: #ccc;
+}
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: var(--color-red-light);
+    border-radius: 50%;
+    border: none;
+    transition: .2s ease-in-out;
+}
+
+/* Thumb: firefox */
+input[type="range"]::-moz-range-thumb {
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: var(--color-red-light);
+    border-radius: 50%;
+    border: none;
+    transition: .2s ease-in-out;
+}
+
+/* Hover and active Thumb: Webkit */
+input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, .1);
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, .2);
+}
+
+/* Hover and active Thumb: Firfox */
+input[type="range"]::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, .1);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, .2);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 /* reset style of select */

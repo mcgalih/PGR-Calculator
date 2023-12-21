@@ -379,19 +379,19 @@ select {
 }
 
 .select-wrapper::after {
-    content: '\f078';
+    content: '';
     position: absolute;
     right: 6px;
-    top: 7px;
+    top: 15px;
     pointer-events: none;
-    font: 20px "Consolas";
+    width: 0; 
+    height: 0; 
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-top: 7px solid var(--color-red);
     padding: 0;
     font-weight: bolder;
     color: black;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
     
 }
 

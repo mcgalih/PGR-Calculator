@@ -21,19 +21,18 @@
                 <div class="dot"></div>
                 <div class="hr-line"></div>
             </div>
-            <div id="hamb-icon" onclick="toggleMobileMenu()">
+            <div id="hamb-icon">
                 <div class="hamb-line"></div>
                 <div class="hamb-line"></div>
                 <div class="hamb-line"></div>
             </div>
         </nav>
         <ul id="hamb-menu" class="h-0 font-body font-size-med">
-            <li class="hamb-list" onclick="MenuConstruct()">Construct</li>
-            <li class="hamb-list" onclick="MenuWeapon()">Weapon</li>
-            <li class="hamb-list" onclick="MenuCub()">Cub</li>
-            <li class="hamb-list" onclick="MenuAbout()">About</li>
+            <li class="hamb-list" id="nav-construct">Construct</li>
+            <li class="hamb-list" id="nav-weapon">Weapon</li>
+            <li class="hamb-list" id="nav-cub">Cub</li>
+            <li class="hamb-list" id="nav-about">About</li>
         </ul>
-        <script src="js/navbar.js"></script>
     </header>
 
     <div id="menu-construct" class="menu-section font-body">
@@ -86,8 +85,6 @@
         <div class="skill">Skill</div>
         <div class="memory">Memory</div>
 
-        <button onclick="calculate()"> CALCULATE </button>
-
     </div>
 
     <div id="menu-weapon" class="menu-section font-body">
@@ -128,7 +125,8 @@
         PGR CALCULATOR is a tool to calculate material resources from a video game : 
         Punishing Gray Raven by Kuro Games
     </div>
-
+    
+    <button onclick="calculate()"> CALCULATE </button>
     <div id="result">
         <div class="head">
             <div class="head-line"></div>
@@ -143,6 +141,7 @@
             Total Cogs = <span id="total_cogs"></span>
         </div>
     </div>
+    <script src="js/navbar.js"></script>
     <script src="js/result.js"></script>
 </body>
 

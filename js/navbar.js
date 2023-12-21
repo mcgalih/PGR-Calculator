@@ -1,68 +1,51 @@
-function toggleMobileMenu() {
-    let hamb_menu = document.getElementById("hamb-menu");
-    let hamb_icon = document.getElementById("hamb-icon");
+const hamb_menu = document.getElementById("hamb-menu");
+const hamb_icon = document.getElementById("hamb-icon");
+const nav_construct = document.getElementById("nav-construct");
+const menu_construct = document.getElementById("menu-construct");
+const nav_weapon = document.getElementById("nav-weapon");
+const menu_weapon = document.getElementById("menu-weapon");
+const nav_cub = document.getElementById("nav-cub");
+const menu_cub = document.getElementById("menu-cub");
+const nav_about = document.getElementById("nav-about");
+const menu_about = document.getElementById("menu-about");
+const menu_result = document.getElementById("result");
+
+function toggleNavbar() {
     hamb_menu.classList.toggle("open");
     hamb_icon.classList.toggle("open");
 }
 
-function MenuConstruct() {
-    let hamb_menu = document.getElementById("hamb-menu");
-    let hamb_icon = document.getElementById("hamb-icon");
-    let menu_construct = document.getElementById("menu-construct");
-    let menu_weapon = document.getElementById("menu-weapon");
-    let menu_cub = document.getElementById("menu-cub");
-    let menu_about = document.getElementById("menu-about");
-    hamb_menu.classList.toggle("open");
-    hamb_icon.classList.toggle("open");
+hamb_icon.addEventListener("click", toggleNavbar)
+
+nav_construct.addEventListener("click", function () {
+    toggleNavbar();
     menu_construct.style.display = "block";
     menu_weapon.style.display = "none";
     menu_cub.style.display = "none";
     menu_about.style.display = "none";
-}
+})
 
-function MenuWeapon() {
-    let hamb_menu = document.getElementById("hamb-menu");
-    let hamb_icon = document.getElementById("hamb-icon");
-    let menu_construct = document.getElementById("menu-construct");
-    let menu_weapon = document.getElementById("menu-weapon");
-    let menu_cub = document.getElementById("menu-cub");
-    let menu_about = document.getElementById("menu-about");
-    hamb_menu.classList.toggle("open");
-    hamb_icon.classList.toggle("open");
+nav_weapon.addEventListener("click", function () {
+    toggleNavbar();
     menu_construct.style.display = "none";
     menu_weapon.style.display = "block";
     menu_cub.style.display = "none";
     menu_about.style.display = "none";
-}
+})
 
-function MenuCub() {
-    let hamb_menu = document.getElementById("hamb-menu");
-    let hamb_icon = document.getElementById("hamb-icon");
-    let menu_construct = document.getElementById("menu-construct");
-    let menu_weapon = document.getElementById("menu-weapon");
-    let menu_cub = document.getElementById("menu-cub");
-    let menu_about = document.getElementById("menu-about");
-    hamb_menu.classList.toggle("open");
-    hamb_icon.classList.toggle("open");
+nav_cub.addEventListener("click", function () {
+    toggleNavbar();
     menu_construct.style.display = "none";
     menu_weapon.style.display = "none";
     menu_cub.style.display = "block";
     menu_about.style.display = "none";
-}
+})
 
-function MenuAbout() {
-    let hamb_menu = document.getElementById("hamb-menu");
-    let hamb_icon = document.getElementById("hamb-icon");
-    let menu_construct = document.getElementById("menu-construct");
-    let menu_weapon = document.getElementById("menu-weapon");
-    let menu_cub = document.getElementById("menu-cub");
-    let menu_about = document.getElementById("menu-about");
-    let menu_result = document.getElementById("result");
-    hamb_menu.classList.toggle("open");
-    hamb_icon.classList.toggle("open");
+nav_about.addEventListener("click", function () {
+    toggleNavbar();
     menu_construct.style.display = "none";
     menu_weapon.style.display = "none";
     menu_cub.style.display = "none";
     menu_about.style.display = "block";
     menu_result.style.display = "none";
-}
+})

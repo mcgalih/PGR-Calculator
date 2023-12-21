@@ -379,7 +379,7 @@ select {
 }
 
 .select-wrapper::after {
-    content: '>';
+    content: '\f078';
     position: absolute;
     right: 6px;
     top: 7px;

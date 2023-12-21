@@ -38,43 +38,50 @@
 
     <div id="menu-construct" class="menu-section font-body">
         <div class="head">
-            <div class="head-line"></div>
-            <div class="head-line"></div>
+            <div class="shape-line"></div>
+            <div class="shape-line"></div>
             <img src="img/icon_construct.png" alt="PGR construct" class="head-img">
             <div class="head-title font-type-med">CONSTRUCT</div>
         </div>
         <div class="input-title">
-            Current Level :
-            <span id="show_lvl_input" style="margin-left: 10px;"></span>
+            <div class="shape-triangle"></div>
+            <span class="input-name">Current Level :</span>
+            <span id="show_lvl_input"></span>
         </div>
         
         <div class="input-wrapper">
-            <button id="lvl_dec" type="button" class="slider-arrow" onclick="decreaseValue()">&lt;</button>
+            <button id="lvl_dec" type="button" onclick="decreaseValue()"
+            class="slider-button font-type-bold">-</button>
             <input id="lvl_input" type="range" min="1" max="80" value="1" step="1"/>
-            <button id="lvl_inc" type="button" class="slider-arrow" onclick="increaseValue()">&gt;</button>
+            <button id="lvl_inc" type="button" onclick="increaseValue()"
+            class="slider-button font-type-bold">+</button>
         </div>
         
         <script src="js/show_charlvl.js"></script>
-
+        
         <div class="input-title">
-            Current Rank :
+            <div class="shape-triangle"></div>
+            <span class="input-name">Current Rank :</span>
+
+            <div class="select-wrapper">
+                <select id="rank_option" class="select" name="rank_option">
+                    <option value="1">PRIVATE</option>
+                    <option value="2">SERGEANT &#9733;</option>
+                    <option value="3">SERGEANT &#9733;&#9733;</option>
+                    <option value="4">ELITE &#9733;</option>
+                    <option value="5">ELITE &#9733;&#9733;</option>
+                    <option value="6">ELITE &#9733;&#9733;&#9733;</option>
+                    <option value="7">TASK FORCE &#9733;</option>
+                    <option value="8">TASK FORCE &#9733;&#9733;</option>
+                    <option value="9">TASK FORCE &#9733;&#9733;&#9733;</option>
+                    <option value="10">ACE &#9733;</option>
+                    <option value="11">ACE &#9733;&#9733;</option>
+                    <option value="12">ACE &#9733;&#9733;&#9733;</option>
+                    <option value="13">ACE &#9733;&#9733;&#9733;&#9733;</option>
+                    <option value="14">HERO</option>
+                </select>
+            </div>
         </div>
-        <select id="rank_option" class="select select--multiple" name="rank_option">
-            <option value="1">PRIVATE</option>
-            <option value="2">SERGEANT 1</option>
-            <option value="3">SERGEANT 2</option>
-            <option value="4">ELITE 1</option>
-            <option value="5">ELITE 2</option>
-            <option value="6">ELITE 3</option>
-            <option value="7">TASK FORCE 1</option>
-            <option value="8">TASK FORCE 2</option>
-            <option value="9">TASK FORCE 3</option>
-            <option value="10">TRUMP 1</option>
-            <option value="11">TRUMP 2</option>
-            <option value="12">TRUMP 3</option>
-            <option value="13">TRUMP 4</option>
-            <option value="14">HERO</option>
-        </select>
 
         <div class="skill">Skill</div>
         <div class="memory">Memory</div>

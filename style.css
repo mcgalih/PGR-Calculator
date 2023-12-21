@@ -241,14 +241,14 @@ header ul {
     width: 50px;
 }
 
-.head-line {
+.shape-line {
     width: 7px;
     height: 50px;
     margin-right: 3px;
-    background-color: var(--color-red-dark);
+    background-color: var(--color-red);
 }
 
-.head-line:nth-child(2) {
+.shape-line:nth-child(2) {
     width: 3px;
     margin-left: 0;
     margin-right: 10px;
@@ -263,7 +263,12 @@ header ul {
     display: flex;
     flex-direction: row;
     width: fit-content;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+.input-name {
+    margin-right: 10px;
 }
 
 /* ========== construct level input =============== */
@@ -274,6 +279,7 @@ input[type="range"] {
     appearance: none;
     /* creating a custom design */
     width: 80%;
+    margin: 0 15px;
     cursor: pointer;
     outline: none;
     border-radius: 15px;
@@ -324,22 +330,40 @@ input[type="range"]:active::-moz-range-thumb {
     box-shadow: 0 0 0 13px rgba(255, 85, 0, .2);
 }
 
+.shape-triangle {
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--color-red);
+    margin-right: 10px;
+}
+
 .input-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.slider-arrow {
-    
+.slider-button {
+    background-color: var(--color-red);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: var(--color-red-light);
+    cursor: pointer;
 }
 
 /* reset style of select */
 select {
     appearance: none;
-    /* background-color: transparent; */
     border: none;
     padding: 0 1em 0 0;
     margin: 0;
@@ -350,10 +374,37 @@ select {
     line-height: inherit;
 }
 
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '>';
+    position: absolute;
+    right: 6px;
+    top: 7px;
+    pointer-events: none;
+    font: 20px "Consolas";
+    padding: 0;
+    font-weight: bolder;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    
+}
+
 .select {
-    border: 1px solid steelblue;
+    border: 3px solid var(--color-red);
+    border-radius: 5px;
     cursor: pointer;
-    padding-right: 0;
+    width: 15ch;
+    padding: 5px;
+}
+
+.select:hover {
+    border: 3px solid var(--color-red-light);
 }
 
 /* @media (min-width: 600px) {

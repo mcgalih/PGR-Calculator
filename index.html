@@ -15,7 +15,7 @@
 <body>
     <header>
         <nav>
-            <div class="navbar-title">
+            <div class="navbar-title" id="nav-about">
                 <div class="navbar-text font-type-med font-size-large">PGR CALCULATOR</div>
                 <div class="skew-rect"></div>
                 <div class="dot"></div>
@@ -29,9 +29,8 @@
         </nav>
         <ul id="hamb-menu" class="h-0 font-body font-size-med">
             <li class="hamb-list" id="nav-construct">Construct</li>
-            <li class="hamb-list" id="nav-weapon">Weapon</li>
             <li class="hamb-list" id="nav-cub">Cub</li>
-            <li class="hamb-list" id="nav-about">About</li>
+            <li class="hamb-list" id="nav-serum">Serum</li>
         </ul>
     </header>
 
@@ -82,29 +81,169 @@
             </div>
         </div>
 
-        <div class="skill">Skill</div>
-        <div class="memory">Memory</div>
-
-    </div>
-
-    <div id="menu-weapon" class="menu-section font-body">
-        <div class="head">
-            <div class="head-line"></div>
-            <div class="head-line"></div>
-            <img src="img/icon_weapon.png" alt="PGR Weapon" class="head-img">
-            <div class="head-title font-type-med">WEAPON</div>
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Current Skills :</span>
+            <span id="show_lvl_input"></span>
         </div>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto hic ea illum ut, vel suscipit voluptatibus officiis, eos dolorem ipsum praesentium. Nulla ipsa fuga cumque unde voluptatibus consequuntur voluptatem voluptates?
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti dolorem sapiente voluptate veritatis culpa, obcaecati fuga cupiditate consequuntur facere, asperiores nostrum? Perferendis consequuntur sed sint corporis exercitationem vel voluptate eos.
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam atque voluptas necessitatibus quaerat harum similique? Est sunt soluta, hic illum aspernatur nam ut cumque suscipit iusto ea ratione, cupiditate facere.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quidem repellat dignissimos nihil nemo fugit expedita recusandae facere ullam veniam nesciunt cupiditate, minima, omnis velit consectetur magni perferendis impedit optio.
 
+        <div class="skills-wrapper">
+            <div class="skills-item">
+                <div class="skills-title">Red Orb</div>
+                <div class="skills-input">
+                    <!-- n = negative, b = button, 1 = skill -->
+                    <button class="input-num-button font-type-bold" id="nb1"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_1"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb1"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <div class="skills-title">Yellow Orb</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb2"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_2"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb2"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">Blue Orb</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb3"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_3"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb3"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">Basic Atk</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb4"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_4"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb4"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">Core</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb5"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_5"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb5"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">Signature</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb6"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_6"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb6"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">QTE</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb7"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_7"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb7"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <div class="skills-title">Class</div>
+                <div class="skills-input">
+                    <button class="input-num-button font-type-bold" id="nb8"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="skill_8"
+                    min="1" max="18" value="1" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pb8"
+                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="skills-item">
+                <div class="skills-title">Leader</div>
+                <div class="skills-input"><input type="checkbox" id="skill_9"></div>
+            </div>
+        </div>
+
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Memory :</span>
+            <span id="show_lvl_input"></span>
+        </div>
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Weapon :</span>
+            <span id="show_lvl_input"></span>
+        </div>
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Leap :</span>
+            <span id="show_lvl_input"></span>
+        </div>
     </div>
 
     <div id="menu-cub" class="menu-section font-body">
         <div class="head">
-            <div class="head-line"></div>
-            <div class="head-line"></div>
+            <div class="shape-line"></div>
+            <div class="shape-line"></div>
             <img src="img/icon_cub.png" alt="PGR Cub" class="head-img">
             <div class="head-title font-type-med">CUB</div>
         </div>
@@ -115,10 +254,24 @@
 
     </div>
 
+    <div id="menu-serum" class="menu-section font-body">
+        <div class="head">
+            <div class="shape-line"></div>
+            <div class="shape-line"></div>
+            <img src="img/icon_serum.png" alt="PGR Serum" class="head-img">
+            <div class="head-title font-type-med">SERUM</div>
+        </div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit, autem debitis nisi ut nostrum expedita architecto accusantium provident reprehenderit at non, minima, dignissimos numquam facere perspiciatis corrupti accusamus similique?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti nihil reprehenderit eum ipsam sed consequatur ipsum officiis excepturi, voluptates ex velit, aspernatur non quidem dolore cum doloremque accusantium a!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, ex? Delectus tempora sit exercitationem hic, reprehenderit voluptate eius dolorem enim, architecto repellat error ullam unde, qui fugit assumenda facere maxime.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident nostrum, reiciendis exercitationem ipsa fugiat itaque, quod quaerat officia rerum, possimus tempora alias ex laudantium labore veritatis eos. Nam, repellat totam?
+
+    </div>
+
     <div id="menu-about" class="menu-section font-body">
         <div class="head">
-            <div class="head-line"></div>
-            <div class="head-line"></div>
+            <div class="shape-line"></div>
+            <div class="shape-line"></div>
             <img src="img/icon_cub.png" alt="PGR Cub" class="head-img">
             <div class="head-title font-type-med">ABOUT</div>
         </div>
@@ -129,13 +282,16 @@
     <button id="btn-calculate" onclick="calculate()"> CALCULATE </button>
     <div id="result">
         <div class="head">
-            <div class="head-line"></div>
-            <div class="head-line"></div>
+            <div class="shape-line"></div>
+            <div class="shape-line"></div>
             <img src="img/icon_cub.png" alt="PGR Cub" class="head-img">
             <div class="head-title font-type-med">RESULT</div>
         </div>
         <div id="exp_pod">
             Exp Pod = <span id="exp_pod_item"></span>
+        </div>
+        <div id="skill_point">
+            Skill Point = <span id="skill_point_item"></span>
         </div>
         <div id="rank_cogs">
             Total Cogs = <span id="total_cogs"></span>

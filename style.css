@@ -418,8 +418,8 @@ input[type=number] {
 .input-num-button div{
     color: white;
     font-size: 20px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -428,7 +428,7 @@ input[type=number] {
 
 .skills-input input {
     width: 3ch;
-    height: 24px;
+    height: 29px;
     font-size: inherit;
 }
 /* @media (min-width: 600px) {

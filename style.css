@@ -192,7 +192,8 @@ header ul {
 
 /* initial display */
 #menu-construct, #menu-cub, #menu-serum,
-#exp_pod, #rank_cogs, #btn-calculate, #result {
+#exp_pod, #skill_point, #rank_cogs,
+#btn-calculate, #result {
     display: none;
 }
 
@@ -426,11 +427,25 @@ input[type=number] {
     align-items: center;
 }
 
-.skills-input input {
+.skills-input input[type=number] {
     width: 3ch;
     height: 29px;
     font-size: inherit;
 }
+
+.skills-input label {
+    cursor: pointer;
+}
+.skills-input label:hover {
+    color: var(--color-red-light);
+}
+
+.skill-leader {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+}
+
 /* @media (min-width: 600px) {
 
 } */

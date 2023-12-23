@@ -24,11 +24,12 @@ const rank_cogs = [
 
 // skill value 1 artinya skill_cogs[1] dan skill_point[1]
 // skill berjumlah 8, untuk skill 9 adalah leader dgn cogs = 25k dan sp = 3
-const skill_cogs = [
-    0, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000
-];
 const skill_point = [
-    0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5
+    0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5
+];
+const skill_cogs = [
+    0, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000,
+    12000, 14000, 16000, 18000, 20000, 22000, 24000, 26000 
 ];
 
 function round_up(pembilang, penyebut) {
@@ -48,13 +49,12 @@ function calculate() {
         var name = '#skill_' + i;
         skill_id_val[i] = parseInt(document.querySelector(name).value);
     }
-    var skill_id_9 = document.querySelector('#skill_9');
+    // console.table(skill_id_val);
     // ================= result view =========================
     var result_view = document.getElementById("result");
     var exp_pod_view = document.getElementById("exp_pod");
     var skill_point_view = document.getElementById("skill_point");
     var total_cogs_view = document.getElementById("rank_cogs");
-
     result_view.style.display = "block";
 
     // ===============  Construct Level ====================
@@ -69,14 +69,34 @@ function calculate() {
         document.querySelector('#exp_pod_item').textContent = qty_exp_pod_L;
     }
 
-    // ================= Construct Rank =====================
+    // ================= Construct Rank ========================
     for (let i = rankval; i < rank_cogs.length; i++) {
         cogs_needed += rank_cogs[i];
     }
 
     // ============= Construct skill point =====================
-    // if total skill point == 0 display = none
+    for (let i = 1; i <= skill_id_val.length; i++) {
+        for (let j = skill_id_val[i]; j < skill_cogs.length; j++) {
+            cogs_needed += skill_cogs[j];
+        }
+    }
 
+    for (let i = 1; i <= skill_id_val.length; i++) {
+        for (let j = skill_id_val[i]; j < skill_point.length; j++) {
+            sp_needed += skill_point[j];
+        }
+    }
+    if(document.querySelector('#skill_9').checked == false){
+        cogs_needed += 25000;
+        sp_needed += 3;
+    }
+
+    if (sp_needed == 0){
+        skill_point_view.style.display = "none";
+    } else {
+        skill_point_view.style.display = "block";
+        document.querySelector('#skill_point_item').textContent = sp_needed;
+    }
 
     // =================== total cogs =========================
     if (cogs_needed == 0) {
@@ -87,6 +107,7 @@ function calculate() {
     }
     // reset
     exp_needed = 0;
+    sp_needed = 0;
     cogs_needed = 0;
 }
 

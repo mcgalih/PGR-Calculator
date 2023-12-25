@@ -84,6 +84,9 @@
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Current Skills :</span>
+            <button id="min-skill" class="minmax-skill font-type-bold">MIN</button>
+            <span class="btn-separator font-type-bold">|</span>
+            <button id="max-skill" class="minmax-skill font-type-bold">MAX</button>
         </div>
 
         <div class="skills-wrapper">
@@ -92,13 +95,13 @@
                 <div class="skills-input">
                     <!-- n = negative, b = button, 1 = skill -->
                     <button class="input-num-button font-type-bold" id="nb1"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_1"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb1"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -108,13 +111,13 @@
                 <div class="skills-title">Yellow Orb</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb2"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_2"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb2"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -124,13 +127,13 @@
                 <div class="skills-title">Blue Orb</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb3"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_3"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb3"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -140,13 +143,13 @@
                 <div class="skills-title">Basic Atk</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb4"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_4"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb4"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -156,13 +159,13 @@
                 <div class="skills-title">Core</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb5"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_5"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb5"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -172,13 +175,13 @@
                 <div class="skills-title">Signature</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb6"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_6"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb6"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -188,13 +191,13 @@
                 <div class="skills-title">QTE</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb7"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_7"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb7"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -204,13 +207,13 @@
                 <div class="skills-title">Class</div>
                 <div class="skills-input">
                     <button class="input-num-button font-type-bold" id="nb8"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'> 
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
                         <div>-</div>
                     </button>
                     <input type="number" id="skill_8"
                     min="1" max="18" value="1" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pb8"
-                    onmousedown='modIn(this)' onmouseup='clearAll()' onpointerleave='clearAll()'>
+                    onpointerdown='modIn(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>+</div>
                     </button>
                 </div>
@@ -220,9 +223,10 @@
                 <div class="skills-title">Leader</div>
                 <div class="skills-input">
                     <label for="skill_9">Upgraded</label>
-                    <input type="checkbox" id="skill_9" class="skill-leader">
+                    <input type="checkbox" id="skill_9" class="skill-leader" onchange="resetminmax()">
                 </div>
             </div>
+            <script src="js/skills.js"></script>
         </div>
 
         <div class="input-title">
@@ -281,8 +285,8 @@
         Punishing Gray Raven by Kuro Games
     </div>
 
-    <button id="btn-calculate" onclick="calculate()"> CALCULATE </button>
-    <div id="result">
+    <a id="btn-calculate" class="btn-calculate font-type-med" onclick="calculate()" href="#result"> CALCULATE </a>
+    <div id="result" style="padding-top: 50px;">
         <div class="head">
             <div class="shape-line"></div>
             <div class="shape-line"></div>

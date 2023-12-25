@@ -25,6 +25,7 @@ nav_construct.addEventListener("click", function () {
     menu_serum.style.display = "none";
     menu_about.style.display = "none";
     btn_calculate.style.display = "block";
+    menu_result.style.display = "block";
 })
 
 nav_cub.addEventListener("click", function () {
@@ -34,6 +35,7 @@ nav_cub.addEventListener("click", function () {
     menu_serum.style.display = "none";
     menu_about.style.display = "none";
     btn_calculate.style.display = "block";
+    menu_result.style.display = "block";
 })
 
 nav_serum.addEventListener("click", function () {
@@ -43,6 +45,7 @@ nav_serum.addEventListener("click", function () {
     menu_serum.style.display = "block";
     menu_about.style.display = "none";
     btn_calculate.style.display = "block";
+    menu_result.style.display = "block";
 })
 
 nav_about.addEventListener("click", function () {

@@ -43,7 +43,7 @@
         </div>
         <div class="input-title">
             <div class="shape-triangle"></div>
-            <span class="input-name">Current Level :</span>
+            <span class="input-name">Level :</span>
             <span id="show_lvl_input"></span>
         </div>
         
@@ -59,7 +59,7 @@
         
         <div class="input-title">
             <div class="shape-triangle"></div>
-            <span class="input-name">Current Rank :</span>
+            <span class="input-name">Rank :</span>
 
             <div class="select-wrapper">
                 <select id="rank_option" class="select" name="rank_option">
@@ -83,7 +83,7 @@
 
         <div class="input-title">
             <div class="shape-triangle"></div>
-            <span class="input-name">Current Skills :</span>
+            <span class="input-name">Skills :</span>
             <button id="min-skill" class="minmax font-type-bold">MIN</button>
             <span class="btn-separator font-type-bold">|</span>
             <button id="max-skill" class="minmax font-type-bold">MAX</button>
@@ -241,7 +241,7 @@
             <button id="custom-memory" class="minmax font-type-bold">CUSTOM</button>
         </div>
 
-        <div class="memory-wrapper">
+        <div id="memory-wrapper">
             <div class="memory-item">
                 <div style="display: none;">
                     <input type="radio" name="m1" value="0" checked>
@@ -253,14 +253,14 @@
                 <div class="img-memory-wrapper">
                     <img class="mem-slot-img" src="img/icon_memory_1.png">
                     <div class="mem-overclock-wrapper">
-                        <img class="mem-overclock-img" src="img/mem overclock stamp 0.png">
-                        <img class="mem-overclock-img" src="img/mem overclock stamp 1.png">
-                        <img class="mem-overclock-img" src="img/mem overclock stamp 2.png">
-                        <img class="mem-overclock-img" src="img/mem overclock stamp 3.png">
-                        <img class="mem-overclock-img" src="img/mem overclock stamp 4.png">
+                        <img class="m1-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m1-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m1-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m1-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m1-overclock-img" src="img/mem overclock stamp 4.png">
                     </div>
                 </div>
-                <button id="btn-mem-overclock">overclock</button>
+                <button id="m1-btn-overclock" onclick="mod_m_overclock(this)">overclock</button> 
                 <div class="memory-input">
                     <button class="input-num-button font-type-bold"> 
                         <div>-</div>

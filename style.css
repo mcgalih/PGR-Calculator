@@ -301,7 +301,7 @@ input[type="range"]::-moz-range-thumb:hover {
     margin-right: 10px;
 }
 
-.input-wrapper {
+.level-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -371,7 +371,7 @@ select {
 }
 
 /* ===================== skills ======================= */
-.minmax-skill {
+.minmax {
     cursor: pointer;
     background-color: transparent;
     color: white;
@@ -382,7 +382,7 @@ select {
     padding: 5px;
 }
 
-.minmax-skill:hover, .minmax-toggle {
+.minmax:hover, .minmax-toggle {
     border-bottom: 2px solid var(--color-red-light);
 }
 
@@ -449,7 +449,7 @@ input[type=number] {
     align-items: center;
 }
 
-.skills-input input[type=number] {
+input[type=number] {
     width: 3ch;
     height: 29px;
     font-size: inherit;
@@ -474,7 +474,41 @@ input[type=number] {
 .memory-wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 70px;
+    grid-auto-rows: 200px;
+}
+
+.memory-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.memory-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-memory-wrapper{
+    position: relative;
+    width: fit-content;
+}
+
+.mem-slot-img {
+    position: relative;
+    width: 100px;
+}
+
+.mem-overclock-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mem-overclock-img{
+    height: 30px;
 }
 
 /* =============== RESULT =================== */

@@ -494,6 +494,15 @@ input[type=number] {
     align-items: center;
 }
 
+.mem-number{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 13px;
+    padding: 2px;
+    top: 13px;
+    left: 24px;
+}
+
 .img-memory-wrapper{
     position: relative;
     width: fit-content;
@@ -507,11 +516,11 @@ input[type=number] {
 .mem-overclock-wrapper{
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
 }
 
 .mem-overclock-wrapper img{
-    height: 30px;
+    height: 18px;
 }
 
 .m-btn-overclock{

@@ -84,7 +84,7 @@
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Skills :</span>
-            <button id="min-skill" class="minmax font-type-bold">MIN</button>
+            <button id="min-skill" class="minmax font-type-bold minmax-toggle">MIN</button>
             <span class="btn-separator font-type-bold">|</span>
             <button id="max-skill" class="minmax font-type-bold">MAX</button>
             <span class="btn-separator font-type-bold">|</span>
@@ -234,14 +234,14 @@
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Memory :</span>
-            <button id="min-memory" class="minmax font-type-bold">MIN</button>
+            <button id="min-memory" class="minmax font-type-bold minmax-toggle">MIN</button>
             <span class="btn-separator font-type-bold">|</span>
             <button id="max-memory" class="minmax font-type-bold">MAX</button>
             <span class="btn-separator font-type-bold">|</span>
             <button id="custom-memory" class="minmax font-type-bold">CUSTOM</button>
         </div>
 
-        <div id="memory-wrapper">
+        <div id="memory-wrapper" style="display: none;">
             <div class="memory-item">
                 <div style="display: none;">
                     <input type="radio" name="m1" value="0" checked>
@@ -252,6 +252,7 @@
                 </div>
                 <div class="img-memory-wrapper">
                     <img class="mem-slot-img" src="img/icon_memory_1.png">
+                    <div class="mem-number">01</div>
                     <div class="mem-overclock-wrapper">
                         <img class="m1-overclock-img" src="img/mem overclock stamp 0.png">
                         <img class="m1-overclock-img" src="img/mem overclock stamp 1.png">
@@ -269,8 +270,6 @@
                     onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
                         <div>-</div>
                     </button>
-                    <!-- <input type="number" id="skill_1"
-                    min="1" max="18" value="1" onchange="imposeMinMax(this)"> -->
                     <input type="number" id="memory_1"
                     value="1" min="1" max="25" onchange="imposeMinMax(this)">
                     <button class="input-num-button font-type-bold" id="pm1"
@@ -279,11 +278,186 @@
                     </button>
                 </div>
             </div>
-            <div class="memory-item">memory item</div>
-            <div class="memory-item">memory item</div>
-            <div class="memory-item">memory item</div>
-            <div class="memory-item">memory item</div>
-            <div class="memory-item">memory item</div>
+            <div class="memory-item">
+                <div style="display: none;">
+                    <input type="radio" name="m2" value="0" checked>
+                    <input type="radio" name="m2" value="1">
+                    <input type="radio" name="m2" value="2">
+                    <input type="radio" name="m2" value="3">
+                    <input type="radio" name="m2" value="4">
+                </div>
+                <div class="img-memory-wrapper">
+                    <img class="mem-slot-img" src="img/icon_memory_2.png">
+                    <div class="mem-number">02</div>
+                    <div class="mem-overclock-wrapper">
+                        <img class="m2-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m2-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m2-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m2-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m2-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="m2-btn-overclock" class="m-btn-overclock font-type-bold"
+                onclick="mod_m_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nm2"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_2"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pm2"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            <div class="memory-item">
+                <div style="display: none;">
+                    <input type="radio" name="m3" value="0" checked>
+                    <input type="radio" name="m3" value="1">
+                    <input type="radio" name="m3" value="2">
+                    <input type="radio" name="m3" value="3">
+                    <input type="radio" name="m3" value="4">
+                </div>
+                <div class="img-memory-wrapper">
+                    <img class="mem-slot-img" src="img/icon_memory_3.png">
+                    <div class="mem-number">03</div>
+                    <div class="mem-overclock-wrapper">
+                        <img class="m3-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m3-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m3-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m3-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m3-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="m3-btn-overclock" class="m-btn-overclock font-type-bold"
+                onclick="mod_m_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nm3"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_3"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pm3"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            <div class="memory-item">
+                <div style="display: none;">
+                    <input type="radio" name="m4" value="0" checked>
+                    <input type="radio" name="m4" value="1">
+                    <input type="radio" name="m4" value="2">
+                    <input type="radio" name="m4" value="3">
+                    <input type="radio" name="m4" value="4">
+                </div>
+                <div class="img-memory-wrapper">
+                    <img class="mem-slot-img" src="img/icon_memory_1.png">
+                    <div class="mem-number">04</div>
+                    <div class="mem-overclock-wrapper">
+                        <img class="m4-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m4-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m4-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m4-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m4-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="m4-btn-overclock" class="m-btn-overclock font-type-bold"
+                onclick="mod_m_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nm4"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_4"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pm4"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            <div class="memory-item">
+                <div style="display: none;">
+                    <input type="radio" name="m5" value="0" checked>
+                    <input type="radio" name="m5" value="1">
+                    <input type="radio" name="m5" value="2">
+                    <input type="radio" name="m5" value="3">
+                    <input type="radio" name="m5" value="4">
+                </div>
+                <div class="img-memory-wrapper">
+                    <img class="mem-slot-img" src="img/icon_memory_2.png">
+                    <div class="mem-number">05</div>
+                    <div class="mem-overclock-wrapper">
+                        <img class="m5-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m5-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m5-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m5-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m5-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="m5-btn-overclock" class="m-btn-overclock font-type-bold"
+                onclick="mod_m_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nm5"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_5"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pm5"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            <div class="memory-item">
+                <div style="display: none;">
+                    <input type="radio" name="m6" value="0" checked>
+                    <input type="radio" name="m6" value="1">
+                    <input type="radio" name="m6" value="2">
+                    <input type="radio" name="m6" value="3">
+                    <input type="radio" name="m6" value="4">
+                </div>
+                <div class="img-memory-wrapper">
+                    <img class="mem-slot-img" src="img/icon_memory_3.png">
+                    <div class="mem-number">06</div>
+                    <div class="mem-overclock-wrapper">
+                        <img class="m6-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="m6-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="m6-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="m6-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="m6-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="m6-btn-overclock" class="m-btn-overclock font-type-bold"
+                onclick="mod_m_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nm6"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_6"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pm6"
+                    onpointerdown='mod_m_level(this)' onpointerup='clearAll()' onpointerleave='clearAll()'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
         </div>
         <script src="js/memory.js"></script>
         <div class="input-title">

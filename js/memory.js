@@ -2,32 +2,28 @@ const max_memory = document.getElementById("max-memory");
 const min_memory = document.getElementById("min-memory");
 const custom_memory = document.getElementById("custom-memory");
 
-// initial memory stamp display, overclock 0 -> display = block
-for (let j = 1; j <= 4; j++) {
-    document.getElementsByClassName("m1-overclock-img")[j].style.display = "none";
+for (let i = 1; i <= 6; i++) {
+    // initial memory stamp display, overclock 0 -> display = block
+    for (let j = 1; j <= 4; j++) {
+        document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
+    }
 }
-
-// for (let i = 1; i <= 6; i++) {
-//     // initial memory stamp display, overclock 0 -> display = block
-//     for (let j = 1; j <= 4; j++) {
-//         m1_overclock_img[j].style.display = "none";
-//         document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
-//     }
-// }
 
 max_memory.addEventListener("click", function () {
     min_memory.classList.remove("minmax-toggle");
     max_memory.classList.add("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
     //=== max value
-    document.getElementsByName("m1")[4].checked = true;
-    document.getElementById("memory_1").value = 45;
-    for (let j = 0; j <= 3; j++) {
-        document.getElementsByClassName("m1-overclock-img")[j].style.display = "none";
+    for (let i = 1; i <= 6; i++) {
+        document.getElementsByName("m"+i)[4].checked = true;
+        document.getElementById("memory_"+i).value = 45;
+        for (let j = 0; j <= 3; j++) {
+            document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
+        }
+        document.getElementsByClassName("m"+i+"-overclock-img")[4].style.display = "block";
     }
-    document.getElementsByClassName("m1-overclock-img")[4].style.display = "block";
-    //===
-    // document.getElementById("memory-wrapper").style.display = "none";
+    //==============
+    document.getElementById("memory-wrapper").style.display = "none";
 })
 
 min_memory.addEventListener("click", function () {
@@ -35,24 +31,23 @@ min_memory.addEventListener("click", function () {
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
     //=== min value
-    document.getElementsByName("m1")[0].checked = true;
-    document.getElementById("memory_1").value = 1;
-    for (let j = 1; j <= 4; j++) {
-        document.getElementsByClassName("m1-overclock-img")[j].style.display = "none";
+    for (let i = 1; i <= 6; i++) {
+        document.getElementsByName("m"+i)[0].checked = true;
+        document.getElementById("memory_"+i).value = 1;
+        for (let j = 1; j <= 4; j++) {
+            document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
+        }
+        document.getElementsByClassName("m"+i+"-overclock-img")[0].style.display = "block";
     }
-    document.getElementsByClassName("m1-overclock-img")[0].style.display = "block";
-    //===
-    // document.getElementById("memory-wrapper").style.display = "none";
+    //==============
+    document.getElementById("memory-wrapper").style.display = "none";
 })
 
 custom_memory.addEventListener("click", function(){
     min_memory.classList.remove("minmax-toggle");
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.add("minmax-toggle");
-    //=== reset value
-
-    //===
-    // document.getElementById("memory-wrapper").style.display = "grid";
+    document.getElementById("memory-wrapper").style.display = "grid";
 })
 
 var m_overclock = 0;

@@ -65,7 +65,7 @@ function calculate() {
             }
         }
     }
-    console.log(m_id_overclock_val + "||" + m_id_lvl_val);
+    // console.log(m_id_overclock_val + "||" + m_id_lvl_val);
     // ============================== result view ==============================
     var result_view = document.getElementById("result");
     var exp_pod_view = document.getElementById("exp_pod");
@@ -79,9 +79,13 @@ function calculate() {
     }
     var qty_exp_pod_L = round_up(exp_needed, exp_pod_L);
     if (lvl_start == 80) {
-        exp_pod_view.style.display = "none";
+        // exp_pod_view.style.display = "none";
+        exp_pod_view.classList.add("result-dontshow");
+        exp_pod_view.classList.remove("result-show");
     } else {
-        exp_pod_view.style.display = "block";
+        // exp_pod_view.style.display = "block";
+        exp_pod_view.classList.remove("result-dontshow");
+        exp_pod_view.classList.add("result-show");
         document.querySelector('#exp_pod_item').textContent = qty_exp_pod_L;
     }
 
@@ -108,17 +112,25 @@ function calculate() {
     }
 
     if (sp_needed == 0){
-        skill_point_view.style.display = "none";
+        // skill_point_view.style.display = "none";
+        skill_point_view.classList.add("result-dontshow");
+        skill_point_view.classList.remove("result-show");
     } else {
-        skill_point_view.style.display = "block";
+        // skill_point_view.style.display = "block";
+        skill_point_view.classList.remove("result-dontshow");
+        skill_point_view.classList.add("result-show");
         document.querySelector('#skill_point_item').textContent = sp_needed;
     }
 
     // ============================== total cogs ================================
     if (cogs_needed == 0) {
-        total_cogs_view.style.display = "none";
+        // total_cogs_view.style.display = "none";
+        total_cogs_view.classList.add("result-dontshow");
+        total_cogs_view.classList.remove("result-show");
     } else {
-        total_cogs_view.style.display = "block";
+        // total_cogs_view.style.display = "block";
+        total_cogs_view.classList.remove("result-dontshow");
+        total_cogs_view.classList.add("result-show");
         document.querySelector('#total_cogs').textContent = cogs_needed;
     }
     // reset

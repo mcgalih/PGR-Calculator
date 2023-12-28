@@ -187,15 +187,8 @@ header ul {
     margin: 0 5%;
 }
 
-#result {
-    margin: 0 5%;
-    padding-top: 50px;
-    padding-bottom: 150px;
-}
-
 /* initial display */
 #menu-construct, #menu-cub, #menu-serum,
-#exp_pod, #skill_point, #rank_cogs,
 #btn-calculate, #result {
     display: none;
 }
@@ -542,6 +535,48 @@ input[type=number] {
 }
 
 /* =============== RESULT =================== */
+
+#result {
+    margin: 0 5%;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.result-title{
+    font-size: 25px;
+}
+
+.result-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 104px);
+    grid-auto-rows: 120px;
+    gap: 10px;
+}
+
+.result-dontshow{
+    display: none;
+}
+
+.result-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid var(--color-red);
+}
+
+.result-show img{
+    width: 80px;
+}
+
+.result-show div{
+    padding: 5px 0;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    border-top: 3px solid var(--color-red);
+}
 
 .btn-calculate {
     text-decoration: none;

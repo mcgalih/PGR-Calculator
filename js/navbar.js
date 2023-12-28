@@ -8,7 +8,7 @@ const nav_serum = document.getElementById("nav-serum");
 const menu_serum = document.getElementById("menu-serum");
 const nav_about = document.getElementById("nav-about");
 const menu_about = document.getElementById("menu-about");
-const btn_calculate = document.getElementById("btn-calculate");
+const btn_calculate = document.getElementById("btn-calculate-wrapper");
 const menu_result = document.getElementById("result");
 
 function toggleNavbar() {
@@ -24,7 +24,7 @@ nav_construct.addEventListener("click", function () {
     menu_cub.style.display = "none";
     menu_serum.style.display = "none";
     menu_about.style.display = "none";
-    btn_calculate.style.display = "block";
+    btn_calculate.style.display = "flex";
     menu_result.style.display = "block";
 })
 
@@ -34,7 +34,7 @@ nav_cub.addEventListener("click", function () {
     menu_cub.style.display = "block";
     menu_serum.style.display = "none";
     menu_about.style.display = "none";
-    btn_calculate.style.display = "block";
+    btn_calculate.style.display = "flex";
     menu_result.style.display = "block";
 })
 
@@ -44,7 +44,7 @@ nav_serum.addEventListener("click", function () {
     menu_cub.style.display = "none";
     menu_serum.style.display = "block";
     menu_about.style.display = "none";
-    btn_calculate.style.display = "block";
+    btn_calculate.style.display = "flex";
     menu_result.style.display = "block";
 })
 

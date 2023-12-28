@@ -134,12 +134,15 @@ header ul {
     height: 180px;
 }
 
-.hamb-list {
+.hamb-list a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
     padding: 20px;
+    color: white;
 }
 
-.hamb-list:hover {
-    cursor: pointer;
+.hamb-list a:hover {
     color: var(--color-red-light);
 }
 
@@ -189,7 +192,7 @@ header ul {
 
 /* initial display */
 #menu-construct, #menu-cub, #menu-serum,
-#btn-calculate, #result {
+#btn-calculate-wrapper, #result {
     display: none;
 }
 
@@ -578,16 +581,73 @@ input[type=number] {
     border-top: 3px solid var(--color-red);
 }
 
+#btn-calculate-wrapper{
+    background-color: rgba(17, 17, 17, 0.7);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 7px;
+}
+
+.shape-skew-rect1 {
+    width: 6px;
+    height: 25px;
+    margin-right: 20px;
+    transform: skew(40deg);
+    background-color: var(--color-red);
+    border: 0;
+}
+
+.shape-dot1 {
+    width: 5px;
+    height: 5px;
+    background-color: var(--color-red);
+    margin-right: 10px;
+}
+
+.shape-hr-line1 {
+    width: 30px;
+    height: 2px;
+    margin-right: 5px;
+    background-color: var(--color-red);
+}
+
+.shape-skew-rect2 {
+    width: 6px;
+    height: 25px;
+    margin-left: 20px;
+    background-color: var(--color-red);
+    transform: skew(-40deg);
+    border: 0;
+}
+
+.shape-dot2 {
+    width: 5px;
+    height: 5px;
+    background-color: var(--color-red);
+    margin-left: 10px;
+}
+
+.shape-hr-line2 {
+    width: 30px;
+    height: 2px;
+    margin-left: 5px;
+    background-color: var(--color-red);
+}
+
 .btn-calculate {
     text-decoration: none;
     cursor: pointer;
     color: white;
     background-color: var(--color-red-dark);
     width: fit-content;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px 30px;
+    border-radius: 50px;
     border: 2px solid var(--color-red-light);
-    margin: 0 auto;
 }
 
 .btn-calculate:hover {

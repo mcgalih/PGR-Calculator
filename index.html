@@ -12,7 +12,7 @@
     <title>PGR Calculator</title>
 </head>
 
-<body>
+<body id="go-to-top">
     <header>
         <nav>
             <div class="navbar-title" id="nav-about">
@@ -28,9 +28,9 @@
             </div>
         </nav>
         <ul id="hamb-menu" class="h-0 font-body font-size-med">
-            <li class="hamb-list" id="nav-construct">Construct</li>
-            <li class="hamb-list" id="nav-cub">Cub</li>
-            <li class="hamb-list" id="nav-serum">Serum</li>
+            <li class="hamb-list" id="nav-construct"><a href="#go-to-top">Construct</a></li>
+            <li class="hamb-list" id="nav-cub"><a href="#go-to-top">Cub</a></li>
+            <li class="hamb-list" id="nav-serum"><a href="#go-to-top">Serum</a></li>
         </ul>
     </header>
 
@@ -510,8 +510,15 @@
         PGR CALCULATOR is a tool to calculate material resources from a video game : 
         Punishing Gray Raven by Kuro Games
     </div>
-
-    <a id="btn-calculate" class="btn-calculate font-type-med" onclick="calculate()" href="#result">CALCULATE</a>
+    <div id="btn-calculate-wrapper">
+        <div class="shape-hr-line1"></div>
+        <div class="shape-dot1"></div>
+        <div class="shape-skew-rect1"></div>
+        <a id="btn-calculate" class="btn-calculate font-type-med" onclick="calculate()" href="#result">CALCULATE</a>
+        <div class="shape-skew-rect2"></div>
+        <div class="shape-dot2"></div>
+        <div class="shape-hr-line2"></div>
+    </div>
     <div id="result">
         <div class="head">
             <div class="shape-line"></div>

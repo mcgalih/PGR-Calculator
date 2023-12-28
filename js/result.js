@@ -55,15 +55,25 @@ function calculate() {
 
     //====== memory overclock 1-6 value
     var m_id_overclock_val = [0]; // memory id 0 tidak ada maka diisi dgn 0
-    for (let i = 1; i <= 6; i++) {
-        for (let j = 0; j <= 4; j++) {
-            var m_overclock_val = document.getElementsByName("m"+i);
-            if(m_overclock_val[j].checked){
-                console.log(parseInt(m_overclock_val[j].value));
-                m_id_overclock_val[i] = parseInt(m_overclock_val[j].value);
-            }
+    for (let j = 0; j <= 4; j++) {
+        var m_overclock_val = document.getElementsByName("m1");
+        if(m_overclock_val[j].checked){
+            console.log(parseInt(m_overclock_val[j].value));
+            m_id_overclock_val[0] = parseInt(m_overclock_val[j].value);
         }
     }
+    console.log(parseInt(document.querySelector("#memory_1").value));
+
+
+    // for (let i = 1; i <= 6; i++) {
+    //     for (let j = 0; j <= 4; j++) {
+    //         var m_overclock_val = document.getElementsByName("m"+i);
+    //         if(m_overclock_val[j].checked){
+    //             console.log(parseInt(m_overclock_val[j].value));
+    //             m_id_overclock_val[i] = parseInt(m_overclock_val[j].value);
+    //         }
+    //     }
+    // }
     // console.log(m_id_overclock_val);
     // ============================== result view ==============================
     var result_view = document.getElementById("result");

@@ -324,7 +324,9 @@ input[type="range"]::-moz-range-thumb:hover {
     cursor: pointer;
 }
 
-/* =========== reset style of select ===========*/
+/* ================ Rank input ================*/
+
+/* reset select style */
 select {
     appearance: none;
     border: none;
@@ -371,6 +373,7 @@ select {
 }
 
 /* ===================== skills ======================= */
+
 .minmax {
     cursor: pointer;
     background-color: transparent;
@@ -509,6 +512,22 @@ input[type=number] {
 
 .mem-overclock-wrapper img{
     height: 30px;
+}
+
+.m-btn-overclock{
+    background-color: var(--color-red);
+    border-color: var(--color-red-light);
+    cursor: pointer;
+}
+
+.m-btn-overclock div{
+    color: white;
+    font-size: 12px;
+    padding: 4px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* =============== RESULT =================== */

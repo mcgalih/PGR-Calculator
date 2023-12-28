@@ -13,6 +13,7 @@ max_memory.addEventListener("click", function () {
     min_memory.classList.remove("minmax-toggle");
     max_memory.classList.add("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
+    document.getElementById("memory-wrapper").style.display = "none";
     //=== max value
     for (let i = 1; i <= 6; i++) {
         document.getElementsByName("m"+i)[4].checked = true;
@@ -22,14 +23,13 @@ max_memory.addEventListener("click", function () {
         }
         document.getElementsByClassName("m"+i+"-overclock-img")[4].style.display = "block";
     }
-    //==============
-    document.getElementById("memory-wrapper").style.display = "none";
 })
 
 min_memory.addEventListener("click", function () {
     min_memory.classList.add("minmax-toggle");
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
+    document.getElementById("memory-wrapper").style.display = "none";
     //=== min value
     for (let i = 1; i <= 6; i++) {
         document.getElementsByName("m"+i)[0].checked = true;
@@ -39,8 +39,6 @@ min_memory.addEventListener("click", function () {
         }
         document.getElementsByClassName("m"+i+"-overclock-img")[0].style.display = "block";
     }
-    //==============
-    document.getElementById("memory-wrapper").style.display = "none";
 })
 
 custom_memory.addEventListener("click", function(){
@@ -48,6 +46,15 @@ custom_memory.addEventListener("click", function(){
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.add("minmax-toggle");
     document.getElementById("memory-wrapper").style.display = "grid";
+    //=== reset value to minimum
+    for (let i = 1; i <= 6; i++) {
+        document.getElementsByName("m"+i)[0].checked = true;
+        document.getElementById("memory_"+i).value = 1;
+        for (let j = 1; j <= 4; j++) {
+            document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
+        }
+        document.getElementsByClassName("m"+i+"-overclock-img")[0].style.display = "block";
+    }
 })
 
 var m_overclock = 0;
@@ -102,69 +109,18 @@ function imposeMinMax(el) {
     }
 }
 
-var m_index = 0;
-var m_interval;
-var m_timeout;
-var m_stopFlag=false;
-
-function clearAll(){
-    clearTimeout(m_timeout);
-    clearInterval(m_interval);
-}
-
-
 function mod_m_level(el) {
     var inId = el.id;
     if (inId.charAt(0) == 'p'){
         var targetId = 'memory_' + inId.charAt(2);
+        document.getElementById(targetId).value++;
         // console.log("+"+targetId);
-        var maxValue = parseInt(document.getElementById(targetId).max);
-        var actValue = parseInt(document.getElementById(targetId).value);
-        m_index = actValue;
-        if (actValue < maxValue){
-            m_stopFlag=false;
-            document.getElementById(targetId).value++;
-        }else {
-            m_stopFlag=true;
-        }
-        m_timeout = setTimeout(function(){
-            m_interval = setInterval(function(){        
-                if(m_index+1 >= maxValue){
-                    m_index=0;
-                    m_stopFlag=true;
-                }  
-                if(m_stopFlag==false){
-                    document.getElementById(targetId).value++;
-                } 
-                m_index++;
-            }, 100);
-        }, 200);      
         imposeMinMax(document.getElementById(targetId));
     }
     if (inId.charAt(0) == 'n') {
         var targetId = 'memory_' + inId.charAt(2);
+        document.getElementById(targetId).value--;
         // console.log("-"+targetId);
-        var minValue = parseInt(document.getElementById(targetId).min);
-        var actValue = parseInt(document.getElementById(targetId).value);
-        m_index = actValue;
-        if(actValue > minValue){
-            m_stopFlag=false;
-            document.getElementById(targetId).value--;
-        }else{
-            m_stopFlag=true;
-        }
-        m_timeout = setTimeout(function(){
-            m_interval = setInterval(function(){        
-                if(m_index-1 <= minValue){
-                    m_index=0;
-                    m_stopFlag=true;
-                }  
-                if(m_stopFlag==false){
-                    document.getElementById(targetId).value--;
-                } 
-                m_index--;
-            }, 100);
-        }, 200);      
         imposeMinMax(document.getElementById(targetId));
     }
 }

@@ -65,7 +65,7 @@ function calculate() {
             }
         }
     }
-    // console.log(m_id_overclock_val + "||" + m_id_lvl_val);
+    console.log(m_id_overclock_val + "||" + m_id_lvl_val);
     // ============================== result view ==============================
     var result_view = document.getElementById("result");
     var exp_pod_view = document.getElementById("exp_pod");

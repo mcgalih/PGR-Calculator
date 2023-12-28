@@ -188,7 +188,9 @@ header ul {
 }
 
 #result {
-    margin: 10px 5%;
+    margin: 0 5%;
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 
 /* initial display */
@@ -543,6 +545,7 @@ input[type=number] {
 
 .btn-calculate {
     text-decoration: none;
+    cursor: pointer;
     color: white;
     background-color: var(--color-red-dark);
     width: fit-content;

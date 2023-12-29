@@ -43,10 +43,14 @@ const m_overclock1_exp = [0];
 const m_overclock2_exp = [0];
 const m_overclock3_exp = [0];
 const m_overclock4_exp = [0];
+const m_max_lvl = [25, 30, 35, 40, 45];
+// ovrclck mats element -> [m_oveclock_3*, m_oveclock_4*, common_overclock_3*, common_overclock_4*]
+const m_overclock_mats = [[0,0,0,0],[4,0,0,0], [4,0,4,0], [3,3,3,3], [3,5,3,5]];
+var m_enhancer_needed = 0;
 var m_overclock_3star_needed = 0;
 var m_overclock_4star_needed = 0;
 
-function memory_init_arr(max_lvl, start_exp, arr_exp, arr_sum_exp) {
+function memory_exp_init(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     var m_start_exp = start_exp;
     var start_i = 1;
     var end_i = 5;
@@ -71,13 +75,15 @@ function memory_init_arr(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     }
 }
 
-memory_init_arr(25, 50, m_overclock0_exp, sum_m_overclock_exp);
-memory_init_arr(30, 70, m_overclock1_exp, sum_m_overclock_exp);
-memory_init_arr(35, 90, m_overclock2_exp, sum_m_overclock_exp);
-memory_init_arr(40, 120, m_overclock3_exp, sum_m_overclock_exp);
-memory_init_arr(45, 150, m_overclock4_exp, sum_m_overclock_exp);
-console.log(sum_m_overclock_exp);
-// console.table(m_overclock0_exp);
+memory_exp_init(m_max_lvl[0], 50, m_overclock0_exp, sum_m_overclock_exp);
+memory_exp_init(m_max_lvl[1], 70, m_overclock1_exp, sum_m_overclock_exp);
+memory_exp_init(m_max_lvl[2], 90, m_overclock2_exp, sum_m_overclock_exp);
+memory_exp_init(m_max_lvl[3], 120, m_overclock3_exp, sum_m_overclock_exp);
+memory_exp_init(m_max_lvl[4], 150, m_overclock4_exp, sum_m_overclock_exp);
+const m_exp_arr = [m_overclock0_exp, m_overclock1_exp, m_overclock2_exp, m_overclock3_exp, m_overclock4_exp];
+// console.log(sum_m_overclock_exp);
+// console.log(m_overclock0_exp);
+// console.log(m_exp_arr);
 
 function round_up(numerator, denominator) {
     if (numerator / denominator > Math.floor(numerator / denominator)){
@@ -87,7 +93,39 @@ function round_up(numerator, denominator) {
     }
 }
 
+function show_item(itemViewId, resultVar, value, dontShowValue, valueId) {
+    if (resultVar == dontShowValue) {
+        itemViewId.classList.add("result-dontshow");
+        itemViewId.classList.remove("result-show");
+    } else {
+        itemViewId.classList.remove("result-dontshow");
+        itemViewId.classList.add("result-show");
+        document.querySelector(valueId).textContent = value;
+    }
+}
+
 function calculate() {
+    // ============================== result view ==============================
+    var view_result = document.getElementById("result");
+    var view_exp_pod = document.getElementById("exp_pod");
+    var view_skill_point = document.getElementById("skill_point");
+    var view_cogs = document.getElementById("cogs");
+    var view_mEnhancer = document.getElementById("memo_enhancer");
+    var view_cmnOverclock3 = document.getElementById("common_overclock_3star");
+    var view_cmnOverclock4 = document.getElementById("common_overclock_4star");
+    var view_mOverclock3 = document.getElementById("memo_overclock_3star");
+    var view_mOverclock4 = document.getElementById("memo_overclock_4star");
+    var item_id_expPod = '#item_exp_pod';
+    var item_id_skillPoint = '#item_skill_point';
+    var item_id_cogs = '#item_cogs';
+    var item_id_mEnhancer = '#item_m_enhancer';
+    var item_id_cmnOverclock3 = '#item_cmn_overclock_3star';
+    var item_id_cmnOverclock4 = '#item_cmn_overclock_4star';
+    var item_id_mOverclock3 = '#item_m_overclock_3star';
+    var item_id_mOverclock4 = '#item_m_overclock_4star';
+    view_result.style.display = "block";
+
+    //=============================== Get value ===============================
     //====== construct lvl value
     var lvl_start = parseInt(document.querySelector('#lvl_input').value);
     //====== rank value
@@ -95,9 +133,9 @@ function calculate() {
     //====== skill 1~8 value
     // skill id 0 doesn't exist, fill the element with 0
     var skill_id_start = [0];
-    for (let i = 1; i <= 8; i++) {
-        var name = '#skill_' + i;
-        skill_id_start[i] = parseInt(document.querySelector(name).value);
+    for (let id = 1; id <= 8; id++) {
+        var name = '#skill_' + id;
+        skill_id_start[id] = parseInt(document.querySelector(name).value);
     }
     // console.table(skill_id_start);
 
@@ -105,79 +143,99 @@ function calculate() {
     // memory id 0 doesn't exist, fill the element with 0
     var m_id_overclock_start = [0];
     var m_id_lvl_start = [0];
-    for (let i = 1; i <= 6; i++) {
-        m_id_lvl_start[i] = parseInt(document.querySelector("#memory_"+i).value);
-        for (let j = 0; j <= 4; j++) {
-            var m_overclock_val = document.getElementsByName("m"+i);
-            if(m_overclock_val[j].checked){
-                m_id_overclock_start[i] = parseInt(m_overclock_val[j].value);
+    for (let id = 1; id <= 6; id++) {
+        m_id_lvl_start[id] = parseInt(document.querySelector("#memory_"+id).value);
+        for (let overclock = 0; overclock <= 4; overclock++) {
+            var m_overclock_val = document.getElementsByName("m"+id);
+            if(m_overclock_val[overclock].checked){
+                m_id_overclock_start[id] = parseInt(m_overclock_val[overclock].value);
             }
         }
     }
     console.log(m_id_overclock_start + "||" + m_id_lvl_start);
-    // ============================== result view ==============================
-    var result_view = document.getElementById("result");
-    var exp_pod_view = document.getElementById("exp_pod");
-    var skill_point_view = document.getElementById("skill_point");
-    var total_cogs_view = document.getElementById("rank_cogs");
-    result_view.style.display = "block";
 
     // ============================ Construct Level ============================
     for (let i = lvl_start; i < lvl_exp.length; i++) {
         exp_pod_needed += lvl_exp[i];
     }
     var qty_exp_pod_L = round_up(exp_pod_needed, item_exp_pod_L);
-    if (lvl_start == 80) {
-        exp_pod_view.classList.add("result-dontshow");
-        exp_pod_view.classList.remove("result-show");
-    } else {
-        exp_pod_view.classList.remove("result-dontshow");
-        exp_pod_view.classList.add("result-show");
-        document.querySelector('#exp_pod_item').textContent = qty_exp_pod_L;
-    }
+    show_item(view_exp_pod, lvl_start, qty_exp_pod_L, 80, item_id_expPod);
 
     // ============================ Construct Rank =============================
-    for (let i = rank_start; i < rank_cogs.length; i++) {
-        cogs_needed += rank_cogs[i];
+    for (let rank = rank_start; rank < rank_cogs.length; rank++) {
+        cogs_needed += rank_cogs[rank];
     }
 
     // ========================= Construct skill point =========================
-    for (let i = 1; i <= skill_id_start.length; i++) {
-        for (let j = skill_id_start[i]; j < skill_cogs.length; j++) {
-            cogs_needed += skill_cogs[j];
+    for (let id = 1; id <= 8; id++) {
+        for (let lvl = skill_id_start[id]; lvl < skill_cogs.length; lvl++) {
+            cogs_needed += skill_cogs[lvl];
         }
     }
 
-    for (let i = 1; i <= skill_id_start.length; i++) {
-        for (let j = skill_id_start[i]; j < skill_point.length; j++) {
-            sp_needed += skill_point[j];
+    for (let id = 1; id <= 8; id++) {
+        for (let lvl = skill_id_start[id]; lvl < skill_point.length; lvl++) {
+            sp_needed += skill_point[lvl];
         }
     }
     if(document.querySelector('#skill_9').checked == false){
         cogs_needed += 25000;
         sp_needed += 3;
     }
+    show_item(view_skill_point, sp_needed, sp_needed, 0, item_id_skillPoint);
 
-    if (sp_needed == 0){
-        skill_point_view.classList.add("result-dontshow");
-        skill_point_view.classList.remove("result-show");
-    } else {
-        skill_point_view.classList.remove("result-dontshow");
-        skill_point_view.classList.add("result-show");
-        document.querySelector('#skill_point_item').textContent = sp_needed;
+    // =============================== memory ==================================
+    // m_id_overclock_start[]
+    // m_id_lvl_start[]
+    // m_max_lvl = [25, 30, 35, 40, 45]
+    // m_overclock_mats = [[0,0,0,0], [4,0,0,0], [4,0,4,0], [3,3,3,3], [3,5,3,5]]
+    // sum_m_overclock_exp = [1660, 2730, 4050, 6140, 8590]
+    
+    for (let id = 1; id <= 6; id++) {
+        var total_m_exp = 0;
+        // switch (m_id_overclock_start[id]) {
+        //     case 0:
+        //         for (let lvl = m_id_lvl_start[id]; lvl < m_overclock0_exp.length; lvl++) {
+        //             total_m_exp += m_overclock0_exp[lvl];
+        //         }
+        //         for (let i = 1; i <= 4; i++) {
+        //             total_m_exp += sum_m_overclock_exp[i];
+        //             m_overclock_3star_needed += m_overclock_mats[i][0];
+        //             m_overclock_4star_needed += m_overclock_mats[i][1];
+        //             cmn_overclock_3star_needed += m_overclock_mats[i][2];
+        //             cmn_overclock_4star_needed += m_overclock_mats[i][3];
+        //         }
+        //         break;
+        // }
+        var overclock = m_id_overclock_start[id];
+        for (let lvl = m_id_lvl_start[id]; lvl < m_max_lvl[overclock]; lvl++) {
+            total_m_exp += m_exp_arr[overclock][lvl];
+        }
+        for (let i = overclock + 1; i <= 4; i++) {
+            total_m_exp += sum_m_overclock_exp[i];
+            m_overclock_3star_needed += m_overclock_mats[i][0];
+            m_overclock_4star_needed += m_overclock_mats[i][1];
+            cmn_overclock_3star_needed += m_overclock_mats[i][2];
+            cmn_overclock_4star_needed += m_overclock_mats[i][3];
+        }
+        m_enhancer_needed += round_up(total_m_exp,300);
     }
-
+    cogs_needed += m_enhancer_needed * 3000;
+    show_item(view_mEnhancer, m_enhancer_needed, m_enhancer_needed, 0, item_id_mEnhancer);
+    show_item(view_cmnOverclock3, cmn_overclock_3star_needed, cmn_overclock_3star_needed, 0, item_id_cmnOverclock3);
+    show_item(view_cmnOverclock4, cmn_overclock_4star_needed, cmn_overclock_4star_needed, 0, item_id_cmnOverclock4);
+    show_item(view_mOverclock3, m_overclock_3star_needed, m_overclock_3star_needed, 0, item_id_mOverclock3);
+    show_item(view_mOverclock4, m_overclock_4star_needed, m_overclock_4star_needed, 0, item_id_mOverclock4);
     // ============================== total cogs ================================
-    if (cogs_needed == 0) {
-        total_cogs_view.classList.add("result-dontshow");
-        total_cogs_view.classList.remove("result-show");
-    } else {
-        total_cogs_view.classList.remove("result-dontshow");
-        total_cogs_view.classList.add("result-show");
-        document.querySelector('#total_cogs').textContent = cogs_needed;
-    }
+    show_item(view_cogs, cogs_needed, cogs_needed, 0, item_id_cogs);
+
     // reset
     exp_pod_needed = 0;
     sp_needed = 0;
     cogs_needed = 0;
+    m_enhancer_needed = 0;
+    cmn_overclock_3star_needed = 0;
+    cmn_overclock_4star_needed = 0;
+    m_overclock_3star_needed = 0;
+    m_overclock_4star_needed = 0;
 }

@@ -28,11 +28,6 @@ custom_skill.addEventListener("click", function(){
     min_skill.classList.remove("minmax-toggle");
     max_skill.classList.remove("minmax-toggle");
     custom_skill.classList.add("minmax-toggle");
-    // reset value to minimum
-    for (let i = 1; i <= 8; i++) {
-        document.getElementById("skill_" + i).value = 1;
-    }
-    document.getElementById("skill_9").checked = false;
     document.getElementById("skills-wrapper").style.display = "grid";
 })
 

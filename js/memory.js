@@ -46,14 +46,33 @@ custom_memory.addEventListener("click", function(){
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.add("minmax-toggle");
     document.getElementById("memory-wrapper").style.display = "grid";
-    //=== reset value to minimum
+    //=== set to current value
     for (let i = 1; i <= 6; i++) {
-        document.getElementsByName("m"+i)[0].checked = true;
-        document.getElementById("memory_"+i).value = 1;
-        for (let j = 1; j <= 4; j++) {
-            document.getElementsByClassName("m"+i+"-overclock-img")[j].style.display = "none";
+        var val = document.getElementsByName("m"+i);
+        var overclock = 0;
+        for (let j = 0; j <= 4; j++) {
+            if(val[j].checked){
+                overclock = parseInt(val[j].value);
+            }
         }
-        document.getElementsByClassName("m"+i+"-overclock-img")[0].style.display = "block";
+        var input_num = document.getElementById("memory_"+i);
+        switch (overclock) {
+            case 0:
+                input_num.setAttribute("max",25);
+                break;
+            case 1:
+                input_num.setAttribute("max",30);
+                break;
+            case 2:
+                input_num.setAttribute("max",35);
+                break;
+            case 3:
+                input_num.setAttribute("max",40);
+                break;
+            case 4:
+                input_num.setAttribute("max",45);
+                break;
+        }
     }
 })
 

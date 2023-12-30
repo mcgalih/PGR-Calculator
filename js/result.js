@@ -112,18 +112,24 @@ function calculate() {
     var view_skill_point = document.getElementById("skill_point");
     var view_cogs = document.getElementById("cogs");
     var view_mEnhancer = document.getElementById("memo_enhancer");
+    var view_wEnhancer = document.getElementById("weap_enhancer");
     var view_cmnOverclock3 = document.getElementById("common_overclock_3star");
     var view_cmnOverclock4 = document.getElementById("common_overclock_4star");
     var view_mOverclock3 = document.getElementById("memo_overclock_3star");
     var view_mOverclock4 = document.getElementById("memo_overclock_4star");
+    var view_wOverclock3 = document.getElementById("weap_overclock_3star");
+    var view_wOverclock4 = document.getElementById("weap_overclock_4star");
     var item_id_expPod = '#item_exp_pod';
     var item_id_skillPoint = '#item_skill_point';
     var item_id_cogs = '#item_cogs';
     var item_id_mEnhancer = '#item_m_enhancer';
+    var item_id_wEnhancer = '#item_w_enhancer';
     var item_id_cmnOverclock3 = '#item_cmn_overclock_3star';
     var item_id_cmnOverclock4 = '#item_cmn_overclock_4star';
     var item_id_mOverclock3 = '#item_m_overclock_3star';
     var item_id_mOverclock4 = '#item_m_overclock_4star';
+    var item_id_wOverclock3 = '#item_w_overclock_3star';
+    var item_id_wOverclock4 = '#item_w_overclock_4star';
     view_result.style.display = "block";
 
     //=============================== Get value ===============================
@@ -153,7 +159,7 @@ function calculate() {
             }
         }
     }
-    console.log(m_id_overclock_start + "||" + m_id_lvl_start);
+    // console.log(m_id_overclock_start + "||" + m_id_lvl_start);
 
     // ============================ Construct Level ============================
     for (let i = lvl_start; i < lvl_exp.length; i++) {
@@ -208,6 +214,7 @@ function calculate() {
     show_item(view_mOverclock4, m_overclock_4star_needed, m_overclock_4star_needed, 0, item_id_mOverclock4);
     // ============================== total cogs ================================
     show_item(view_cogs, cogs_needed, cogs_needed, 0, item_id_cogs);
+    
     show_item(view_cmnOverclock3, cmn_overclock_3star_needed, cmn_overclock_3star_needed, 0, item_id_cmnOverclock3);
     show_item(view_cmnOverclock4, cmn_overclock_4star_needed, cmn_overclock_4star_needed, 0, item_id_cmnOverclock4);
 

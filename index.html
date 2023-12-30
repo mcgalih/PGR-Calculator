@@ -53,9 +53,8 @@
             <input id="lvl_input" type="range" min="1" max="80" value="1" step="1"/>
             <button id="lvl_inc" type="button" onclick="increaseValue()"
             class="slider-button font-type-bold">+</button>
+            <script src="js/show_charlvl.js"></script>
         </div>
-        
-        <script src="js/show_charlvl.js"></script>
         
         <div class="input-title">
             <div class="shape-triangle"></div>
@@ -458,11 +457,51 @@
                     </button>
                 </div>
             </div>
+            <script src="js/memory.js"></script>
         </div>
-        <script src="js/memory.js"></script>
+
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Weapon :</span>
+        </div>
+
+        <div id="weapon-wrapper">
+            <div class="weapon-item">
+                <div>
+                    <input type="radio" name="w6" value="0" checked>
+                    <input type="radio" name="w6" value="1">
+                    <input type="radio" name="w6" value="2">
+                    <input type="radio" name="w6" value="3">
+                    <input type="radio" name="w6" value="4">
+                </div>
+                <div class="img-weapon-wrapper">
+                    <img class="w-img" src="img/Icon_weapon_6star.png">
+                    <div class="w-overclock-wrapper">
+                        <img class="w-overclock-img" src="img/mem overclock stamp 0.png">
+                        <img class="w-overclock-img" src="img/mem overclock stamp 1.png">
+                        <img class="w-overclock-img" src="img/mem overclock stamp 2.png">
+                        <img class="w-overclock-img" src="img/mem overclock stamp 3.png">
+                        <img class="w-overclock-img" src="img/mem overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="w6-btn-overclock" class="w-btn-overclock font-type-bold"
+                onclick="mod_w_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nw6"
+                    onclick='mod_w_level(this)'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="memory_1"
+                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pw6"
+                    onclick='mod_w_level(this)'> 
+                        <div>+</div>
+                    </button>
+                </div>
+                <script src="js/weapon.js"></script>
+            </div>
         </div>
 
         <div class="input-title">
@@ -535,12 +574,16 @@
                 <div id="item_exp_pod"></div>
             </div>
             <div id="skill_point" class="result-dontshow">
-                <img src="img/Item-SkillPoint.png" alt="SKILL POINT">
+                <img src="img/Item-SkillPoint.png" alt="Skill Point">
                 <div id="item_skill_point"></div>
             </div>
             <div id="memo_enhancer" class="result-dontshow">
                 <img src="img/Item-MemoryEnhancer.png" alt="Memory Enhancer *4">
                 <div id="item_m_enhancer"></div>
+            </div>
+            <div id="weap_enhancer" class="result-dontshow">
+                <img src="img/Item-WeaponEnhancer.png" alt="Weapon Enhancer *4">
+                <div id="item_w_enhancer"></div>
             </div>
             <div id="common_overclock_3star" class="result-dontshow">
                 <img src="img/Item-CrystalOverclock-3star.png" alt="Minor Overclock Alloy">
@@ -550,13 +593,21 @@
                 <img src="img/Item-MemoryOverclock-3star.png" alt="Memory Overclock Circuit I">
                 <div id="item_m_overclock_3star"></div>
             </div>
+            <div id="weap_overclock_3star" class="result-dontshow">
+                <img src="img/Item-WeaponOverclock-3star.png" alt="Weapon Overclock Core I">
+                <div id="item_w_overclock_3star"></div>
+            </div>
             <div id="common_overclock_4star" class="result-dontshow">
                 <img src="img/Item-CrystalOverclock-4star.png" alt="Major Overclock Alloy">
                 <div id="item_cmn_overclock_4star"></div>
             </div>
             <div id="memo_overclock_4star" class="result-dontshow">
-                <img src="img/Item-MemoryOverclock-4star.png" alt="Memory Overclock Circuit I">
+                <img src="img/Item-MemoryOverclock-4star.png" alt="Memory Overclock Circuit II">
                 <div id="item_m_overclock_4star"></div>
+            </div>
+            <div id="weap_overclock_4star" class="result-dontshow">
+                <img src="img/Item-WeaponOverclock-4star.png" alt="Weapon Overclock Core II">
+                <div id="item_w_overclock_4star"></div>
             </div>
         </div>
     </div>

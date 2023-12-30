@@ -94,14 +94,14 @@ function round_up(numerator, denominator) {
     }
 }
 
-function show_item(itemViewId, resultVar, value, dontShowValue, valueId) {
-    if (resultVar == dontShowValue) {
+function show_item(itemViewId, resultValue, valueId) {
+    if (resultValue == 0) {
         itemViewId.classList.add("result-dontshow");
         itemViewId.classList.remove("result-show");
     } else {
         itemViewId.classList.remove("result-dontshow");
         itemViewId.classList.add("result-show");
-        document.querySelector(valueId).textContent = value;
+        document.querySelector(valueId).textContent = resultValue;
     }
 }
 
@@ -166,7 +166,7 @@ function calculate() {
         exp_pod_needed += lvl_exp[i];
     }
     var qty_exp_pod_L = round_up(exp_pod_needed, item_exp_pod_L);
-    show_item(view_exp_pod, lvl_start, qty_exp_pod_L, 80, item_id_expPod);
+    show_item(view_exp_pod, qty_exp_pod_L, item_id_expPod);
 
     // ============================ Construct Rank =============================
     for (let rank = rank_start; rank < rank_cogs.length; rank++) {
@@ -189,7 +189,7 @@ function calculate() {
         cogs_needed += 25000;
         sp_needed += 3;
     }
-    show_item(view_skill_point, sp_needed, sp_needed, 0, item_id_skillPoint);
+    show_item(view_skill_point, sp_needed, item_id_skillPoint);
 
     // =============================== memory ==================================
     for (let id = 1; id <= 6; id++) {
@@ -209,14 +209,14 @@ function calculate() {
         m_enhancer_needed += round_up(total_m_exp,300);
     }
     cogs_needed += m_enhancer_needed * 3000;
-    show_item(view_mEnhancer, m_enhancer_needed, m_enhancer_needed, 0, item_id_mEnhancer);
-    show_item(view_mOverclock3, m_overclock_3star_needed, m_overclock_3star_needed, 0, item_id_mOverclock3);
-    show_item(view_mOverclock4, m_overclock_4star_needed, m_overclock_4star_needed, 0, item_id_mOverclock4);
+    show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
+    show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
+    show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
     // ============================== total cogs ================================
-    show_item(view_cogs, cogs_needed, cogs_needed, 0, item_id_cogs);
-    
-    show_item(view_cmnOverclock3, cmn_overclock_3star_needed, cmn_overclock_3star_needed, 0, item_id_cmnOverclock3);
-    show_item(view_cmnOverclock4, cmn_overclock_4star_needed, cmn_overclock_4star_needed, 0, item_id_cmnOverclock4);
+    show_item(view_cogs, cogs_needed, item_id_cogs);
+
+    show_item(view_cmnOverclock3, cmn_overclock_3star_needed, item_id_cmnOverclock3);
+    show_item(view_cmnOverclock4, cmn_overclock_4star_needed, item_id_cmnOverclock4);
 
     // reset
     exp_pod_needed = 0;

@@ -550,8 +550,8 @@ input[type=number] {
     margin-right: 5px;
 }
 
-#max-weapon{
-    padding-right: 0;
+#weapon-title {
+    margin-right: 0;
 }
 
 /* =============== RESULT =================== */

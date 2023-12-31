@@ -463,10 +463,56 @@
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Weapon :</span>
+            <div style="display: none;">
+                <input type="radio" name="weapon-rate" value="0">
+                <input type="radio" name="weapon-rate" value="1" checked>
+            </div>
+            <button id="5stars-weapon" class="minmax font-type-bold">5&#9733;</button>
+            <span class="btn-separator font-type-bold">|</span>
+            <button id="6stars-weapon" class="minmax font-type-bold minmax-toggle">6&#9733;</button>
+            <div class="weap-btn-separator"></div>
+            <button id="min-weapon" class="minmax font-type-bold minmax-toggle">MIN</button>
+            <span class="btn-separator font-type-bold">|</span>
+            <button id="max-weapon" class="minmax font-type-bold">MAX</button>
         </div>
 
         <div id="weapon-wrapper">
-            <div class="weapon-item">
+            <div class="weapon-item" id="w5-container">
+                <div style="display: none;">
+                    <input type="radio" name="w5" value="0">
+                    <input type="radio" name="w5" value="1">
+                    <input type="radio" name="w5" value="2">
+                    <input type="radio" name="w5" value="3">
+                    <input type="radio" name="w5" value="4" checked>
+                </div>
+                <div class="img-weapon-wrapper">
+                    <img class="w-img" src="img/Icon_weapon_5star.png">
+                    <div class="w-overclock-wrapper">
+                        <img class="w5-overclock-img" src="img/overclock stamp 0.png">
+                        <img class="w5-overclock-img" src="img/overclock stamp 1.png">
+                        <img class="w5-overclock-img" src="img/overclock stamp 2.png">
+                        <img class="w5-overclock-img" src="img/overclock stamp 3.png">
+                        <img class="w5-overclock-img" src="img/overclock stamp 4.png">
+                    </div>
+                </div>
+                <button id="w5-btn-overclock" class="w-btn-overclock font-type-bold"
+                onclick="mod_w_overclock(this)">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="memory-input">
+                    <button class="input-num-button font-type-bold" id="nw5"
+                    onclick='mod_w_level(this)'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="weapon_5"
+                    value="45" min="1" max="45" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pw5"
+                    onclick='mod_w_level(this)'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+            <div class="weapon-item" id="w6-container">
                 <div style="display: none;">
                     <input type="radio" name="w6" value="0" checked>
                     <input type="radio" name="w6" value="1">
@@ -500,8 +546,8 @@
                         <div>+</div>
                     </button>
                 </div>
-                <script src="js/weapon.js"></script>
             </div>
+            <script src="js/weapon.js"></script>
         </div>
 
         <div class="input-title">

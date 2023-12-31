@@ -210,7 +210,7 @@ header ul {
 
 .shape-line {
     width: 7px;
-    height: 50px;
+    align-self: stretch;
     margin-right: 3px;
     background-color: var(--color-red);
 }
@@ -540,6 +540,14 @@ input[type=number] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.weap-btn-separator{
+    align-self: stretch;
+    background-color: var(--color-red-light);
+    width: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* =============== RESULT =================== */

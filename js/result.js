@@ -51,7 +51,7 @@ var m_enhancer_needed = 0;
 var m_overclock_3star_needed = 0;
 var m_overclock_4star_needed = 0;
 
-function memory_exp_init(max_lvl, start_exp, arr_exp, arr_sum_exp) {
+function arr_exp(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     var m_start_exp = start_exp;
     var start_i = 1;
     var end_i = 5;
@@ -76,60 +76,62 @@ function memory_exp_init(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     }
 }
 
-memory_exp_init(m_max_lvl[0], 50, m_overclock0_exp, sum_m_overclock_exp);
-memory_exp_init(m_max_lvl[1], 70, m_overclock1_exp, sum_m_overclock_exp);
-memory_exp_init(m_max_lvl[2], 90, m_overclock2_exp, sum_m_overclock_exp);
-memory_exp_init(m_max_lvl[3], 120, m_overclock3_exp, sum_m_overclock_exp);
-memory_exp_init(m_max_lvl[4], 150, m_overclock4_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[0], 50, m_overclock0_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[1], 70, m_overclock1_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[2], 90, m_overclock2_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[3], 120, m_overclock3_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[4], 150, m_overclock4_exp, sum_m_overclock_exp);
 const m_exp_arr = [m_overclock0_exp, m_overclock1_exp, m_overclock2_exp, m_overclock3_exp, m_overclock4_exp];
 // console.log(sum_m_overclock_exp);
 // console.log(m_overclock0_exp);
 // console.log(m_exp_arr);
 
-function round_up(numerator, denominator) {
-    if (numerator / denominator > Math.floor(numerator / denominator)){
-        return Math.ceil(numerator / denominator);
-    } else {
-        return Math.floor(numerator / denominator);
-    }
-}
+//========================== CONSTRUCT MEMORY ============================//
+const sum_w6_overclock_exp = [];
+const w6_overclock0_exp = [0];
+const w6_overclock1_exp = [0];
+const w6_overclock2_exp = [0];
+const w6_overclock3_exp = [0];
+const w6_overclock4_exp = [0];
+const w_max_lvl = [25, 30, 35, 40, 45];
+const w6_overclock_cogs = [0, 10000, 20000, 30000, 40000];
+const w6_overclock_mats = [[0,0,0,0], [8,0,0,0], [8,0,8,0], [6,6,6,6], [6,10,6,10]];
+var w_enhancer_needed = 0;
+var w_overclock_3star_needed = 0;
+var w_overclock_4star_needed = 0;
 
-function show_item(itemViewId, resultValue, valueId) {
-    if (resultValue == 0) {
-        itemViewId.classList.add("result-dontshow");
-        itemViewId.classList.remove("result-show");
-    } else {
-        itemViewId.classList.remove("result-dontshow");
-        itemViewId.classList.add("result-show");
-        document.querySelector(valueId).textContent = resultValue;
-    }
-}
+arr_exp(w_max_lvl[0], 50, w6_overclock0_exp, sum_w6_overclock_exp);
+arr_exp(w_max_lvl[1], 70, w6_overclock1_exp, sum_w6_overclock_exp);
+arr_exp(w_max_lvl[2], 90, w6_overclock2_exp, sum_w6_overclock_exp);
+arr_exp(w_max_lvl[3], 120, w6_overclock3_exp, sum_w6_overclock_exp);
+arr_exp(w_max_lvl[4], 150, w6_overclock4_exp, sum_w6_overclock_exp);
+const w6_exp_arr = [w6_overclock0_exp, w6_overclock1_exp, w6_overclock2_exp, w6_overclock3_exp, w6_overclock4_exp];
 
 function calculate() {
     // ============================== result view ==============================
-    var view_result = document.getElementById("result");
-    var view_exp_pod = document.getElementById("exp_pod");
-    var view_skill_point = document.getElementById("skill_point");
-    var view_cogs = document.getElementById("cogs");
-    var view_mEnhancer = document.getElementById("memo_enhancer");
-    var view_wEnhancer = document.getElementById("weap_enhancer");
-    var view_cmnOverclock3 = document.getElementById("common_overclock_3star");
-    var view_cmnOverclock4 = document.getElementById("common_overclock_4star");
-    var view_mOverclock3 = document.getElementById("memo_overclock_3star");
-    var view_mOverclock4 = document.getElementById("memo_overclock_4star");
-    var view_wOverclock3 = document.getElementById("weap_overclock_3star");
-    var view_wOverclock4 = document.getElementById("weap_overclock_4star");
-    var item_id_expPod = '#item_exp_pod';
-    var item_id_skillPoint = '#item_skill_point';
-    var item_id_cogs = '#item_cogs';
-    var item_id_mEnhancer = '#item_m_enhancer';
-    var item_id_wEnhancer = '#item_w_enhancer';
-    var item_id_cmnOverclock3 = '#item_cmn_overclock_3star';
-    var item_id_cmnOverclock4 = '#item_cmn_overclock_4star';
-    var item_id_mOverclock3 = '#item_m_overclock_3star';
-    var item_id_mOverclock4 = '#item_m_overclock_4star';
-    var item_id_wOverclock3 = '#item_w_overclock_3star';
-    var item_id_wOverclock4 = '#item_w_overclock_4star';
+    const view_result = document.getElementById("result");
+    const view_exp_pod = document.getElementById("exp_pod");
+    const view_skill_point = document.getElementById("skill_point");
+    const view_cogs = document.getElementById("cogs");
+    const view_mEnhancer = document.getElementById("memo_enhancer");
+    const view_wEnhancer = document.getElementById("weap_enhancer");
+    const view_cmnOverclock3 = document.getElementById("common_overclock_3star");
+    const view_cmnOverclock4 = document.getElementById("common_overclock_4star");
+    const view_mOverclock3 = document.getElementById("memo_overclock_3star");
+    const view_mOverclock4 = document.getElementById("memo_overclock_4star");
+    const view_wOverclock3 = document.getElementById("weap_overclock_3star");
+    const view_wOverclock4 = document.getElementById("weap_overclock_4star");
+    const item_id_expPod = '#item_exp_pod';
+    const item_id_skillPoint = '#item_skill_point';
+    const item_id_cogs = '#item_cogs';
+    const item_id_mEnhancer = '#item_m_enhancer';
+    const item_id_wEnhancer = '#item_w_enhancer';
+    const item_id_cmnOverclock3 = '#item_cmn_overclock_3star';
+    const item_id_cmnOverclock4 = '#item_cmn_overclock_4star';
+    const item_id_mOverclock3 = '#item_m_overclock_3star';
+    const item_id_mOverclock4 = '#item_m_overclock_4star';
+    const item_id_wOverclock3 = '#item_w_overclock_3star';
+    const item_id_wOverclock4 = '#item_w_overclock_4star';
     view_result.style.display = "block";
 
     //=============================== Get value ===============================
@@ -159,8 +161,21 @@ function calculate() {
             }
         }
     }
-    // console.log(m_id_overclock_start + "||" + m_id_lvl_start);
 
+    //====== weapon overclock 5 and 6 stars value
+    var w_lvl_start = [];
+    var w_overclock_start = [];
+    for (let stars = 5; stars <= 6; stars++) {
+        w_lvl_start[stars-5] = parseInt(document.querySelector("#weapon_"+stars).value);
+        for (let overclock = 0; overclock <= 4; overclock++) {
+            var w_overclock_val = document.getElementsByName("w"+stars);
+            if(w_overclock_val[overclock].checked){
+                w_overclock_start[stars-5] = parseInt(w_overclock_val[overclock].value);
+            }
+        }
+    }
+    // console.log("weapon 5 >> overclock = "+w_overclock_start[0]+", lvl = "+w_lvl_start[0]);
+    // console.log("weapon 6 >> overclock = "+w_overclock_start[1]+", lvl = "+w_lvl_start[1]);
     // ============================ Construct Level ============================
     for (let i = lvl_start; i < lvl_exp.length; i++) {
         exp_pod_needed += lvl_exp[i];
@@ -212,6 +227,10 @@ function calculate() {
     show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
     show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
     show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
+
+    // =============================== weapon ==================================
+    
+
     // ============================== total cogs ================================
     show_item(view_cogs, cogs_needed, item_id_cogs);
 
@@ -225,6 +244,28 @@ function calculate() {
     cmn_overclock_3star_needed = 0;
     cmn_overclock_4star_needed = 0;
     m_enhancer_needed = 0;
+    w_enhancer_needed = 0;
     m_overclock_3star_needed = 0;
     m_overclock_4star_needed = 0;
+    w_overclock_3star_needed = 0;
+    w_overclock_4star_needed = 0;
+}
+
+function round_up(numerator, denominator) {
+    if (numerator / denominator > Math.floor(numerator / denominator)){
+        return Math.ceil(numerator / denominator);
+    } else {
+        return Math.floor(numerator / denominator);
+    }
+}
+
+function show_item(itemViewId, resultValue, valueId) {
+    if (resultValue == 0) {
+        itemViewId.classList.add("result-dontshow");
+        itemViewId.classList.remove("result-show");
+    } else {
+        itemViewId.classList.remove("result-dontshow");
+        itemViewId.classList.add("result-show");
+        document.querySelector(valueId).textContent = resultValue;
+    }
 }

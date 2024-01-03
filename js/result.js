@@ -269,3 +269,17 @@ function show_item(itemViewId, resultValue, valueId) {
         document.querySelector(valueId).textContent = resultValue;
     }
 }
+
+// input number validations
+const onlyNumber = document.querySelectorAll(".InputNumber");
+onlyNumber.forEach(function(button) {
+    button.addEventListener("keydown", function(event){
+        let key = event.key;
+        if (key !== "9" && key !== "8" && key !== "7" && key !== "6" && key !== "5" &&
+        key !== "4" && key !== "3" && key !== "2" && key !== "1" && key !== "0" &&
+        key !== "ArrowUp" && key !== "ArrowDown" && key !== "Tab" && key !== "Backspace"){
+            // console.log("only allow number");
+            event.preventDefault();
+        }
+    })
+});

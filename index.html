@@ -41,6 +41,9 @@
             <img src="img/icon_construct.png" alt="PGR construct" class="head-img">
             <div class="head-title font-type-med">CONSTRUCT</div>
         </div>
+        <!-- bikin tombol count / don't count, kalo don't count semuanya max, display none -->
+        
+        <!--====-->
         <div class="input-title">
             <div class="shape-triangle"></div>
             <span class="input-name">Level :</span>
@@ -53,7 +56,6 @@
             <input id="lvl_input" type="range" min="1" max="80" value="1" step="1"/>
             <button id="lvl_inc" type="button" onclick="increaseValue()"
             class="slider-button font-type-bold">+</button>
-            <script src="js/show_charlvl.js"></script>
         </div>
         
         <div class="input-title">
@@ -227,7 +229,6 @@
                     <input type="checkbox" id="skill_9" class="skill-leader">
                 </div>
             </div>
-            <script src="js/skills.js"></script>
         </div>
 
         <div class="input-title">
@@ -457,7 +458,6 @@
                     </button>
                 </div>
             </div>
-            <script src="js/memory.js"></script>
         </div>
 
         <div class="input-title">
@@ -505,7 +505,7 @@
                         <div>-</div>
                     </button>
                     <input type="number" id="weapon_5"  class="InputNumber"
-                    value="45" min="1" max="45" onchange="imposeMinMax(this)">
+                    value="45" min="1" max="45" onchange="imposeMinMaxW(this)">
                     <button class="input-num-button font-type-bold" id="pw5"
                     onclick='mod_w_level(this)'> 
                         <div>+</div>
@@ -540,14 +540,13 @@
                         <div>-</div>
                     </button>
                     <input type="number" id="weapon_6"  class="InputNumber"
-                    value="1" min="1" max="25" onchange="imposeMinMax(this)">
+                    value="1" min="1" max="25" onchange="imposeMinMaxW(this)">
                     <button class="input-num-button font-type-bold" id="pw6"
                     onclick='mod_w_level(this)'> 
                         <div>+</div>
                     </button>
                 </div>
             </div>
-            <script src="js/weapon.js"></script>
         </div>
 
         <div class="input-title">
@@ -555,6 +554,7 @@
             <span class="input-name">Leap :</span>
             <span id="show_lvl_input"></span>
         </div>
+        <script src="js/menu_construct.js"></script>
     </div>
 
     <div id="menu-cub" class="menu-section font-body">

@@ -86,16 +86,24 @@ const m_exp_arr = [m_overclock0_exp, m_overclock1_exp, m_overclock2_exp, m_overc
 // console.log(m_overclock0_exp);
 // console.log(m_exp_arr);
 
-//========================== CONSTRUCT MEMORY ============================//
-const sum_w6_overclock_exp = [];
+//========================== CONSTRUCT WEAPON ============================//
 const w6_overclock0_exp = [0];
 const w6_overclock1_exp = [0];
 const w6_overclock2_exp = [0];
 const w6_overclock3_exp = [0];
 const w6_overclock4_exp = [0];
+const w5_overclock0_exp = [0];
+const w5_overclock1_exp = [0];
+const w5_overclock2_exp = [0];
+const w5_overclock3_exp = [0];
+const w5_overclock4_exp = [0];
 const w_max_lvl = [25, 30, 35, 40, 45];
+const sum_w6_overclock_exp = [];
+const sum_w5_overclock_exp = [];
 const w6_overclock_cogs = [0, 10000, 20000, 30000, 40000];
+const w5_overclock_cogs = [0, 8000, 16000, 24000, 32000];
 const w6_overclock_mats = [[0,0,0,0], [8,0,0,0], [8,0,8,0], [6,6,6,6], [6,10,6,10]];
+const w5_overclock_mats = [[0,0,0,0], [6,0,0,0], [6,0,6,0], [4,4,4,4], [4,8,4,8]];
 var w_enhancer_needed = 0;
 var w_overclock_3star_needed = 0;
 var w_overclock_4star_needed = 0;
@@ -106,6 +114,13 @@ arr_exp(w_max_lvl[2], 90, w6_overclock2_exp, sum_w6_overclock_exp);
 arr_exp(w_max_lvl[3], 120, w6_overclock3_exp, sum_w6_overclock_exp);
 arr_exp(w_max_lvl[4], 150, w6_overclock4_exp, sum_w6_overclock_exp);
 const w6_exp_arr = [w6_overclock0_exp, w6_overclock1_exp, w6_overclock2_exp, w6_overclock3_exp, w6_overclock4_exp];
+
+arr_exp(w_max_lvl[0], 30, w5_overclock0_exp, sum_w5_overclock_exp);
+arr_exp(w_max_lvl[1], 40, w5_overclock1_exp, sum_w5_overclock_exp);
+arr_exp(w_max_lvl[2], 60, w5_overclock2_exp, sum_w5_overclock_exp);
+arr_exp(w_max_lvl[3], 80, w5_overclock3_exp, sum_w5_overclock_exp);
+arr_exp(w_max_lvl[4], 100, w5_overclock4_exp, sum_w5_overclock_exp);
+const w5_exp_arr = [w5_overclock0_exp, w5_overclock1_exp, w5_overclock2_exp, w5_overclock3_exp, w5_overclock4_exp];
 
 function calculate() {
     // ============================== result view ==============================
@@ -229,8 +244,43 @@ function calculate() {
     show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
 
     // =============================== weapon ==================================
-    
+    var total_w_exp = 0;
+    // weapon 5 stars
+    var overclock = w_overclock_start[0];
+    for (let lvl = w_lvl_start[0]; lvl < w_max_lvl[overclock]; lvl++) {
+        total_w_exp += w5_exp_arr[overclock][lvl];
+    }
 
+    for (let i = overclock + 1; i <= 4; i++) {
+        total_w_exp += sum_w5_overclock_exp[i];
+        cogs_needed += w5_overclock_cogs[i];
+        w_overclock_3star_needed += w5_overclock_mats[i][0];
+        w_overclock_4star_needed += w5_overclock_mats[i][1];
+        cmn_overclock_3star_needed += w5_overclock_mats[i][2];
+        cmn_overclock_4star_needed += w5_overclock_mats[i][3];
+    }
+
+    // weapon 6 stars
+    overclock = w_overclock_start[1];
+    for (let lvl = w_lvl_start[1]; lvl < w_max_lvl[overclock]; lvl++) {
+        total_w_exp += w6_exp_arr[overclock][lvl];
+    }
+
+    for (let i = overclock + 1; i <= 4; i++) {
+        total_w_exp += sum_w6_overclock_exp[i];
+        cogs_needed += w6_overclock_cogs[i];
+        w_overclock_3star_needed += w6_overclock_mats[i][0];
+        w_overclock_4star_needed += w6_overclock_mats[i][1];
+        cmn_overclock_3star_needed += w6_overclock_mats[i][2];
+        cmn_overclock_4star_needed += w6_overclock_mats[i][3];
+    }
+
+    w_enhancer_needed += round_up(total_w_exp,300);
+    cogs_needed += w_enhancer_needed * 3000;
+
+    show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
+    show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
+    show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
     // ============================== total cogs ================================
     show_item(view_cogs, cogs_needed, item_id_cogs);
 

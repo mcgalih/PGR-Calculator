@@ -445,7 +445,7 @@ var content_construct = document.getElementById("content-construct");
 function toggle_construct(){    
     if(toggle_construct_val.checked == false){
         content_construct.style.display = "none";
-        console.log("false");
+        // set everything to minimum
         set_max_lvl_construct();
         document.getElementById("rank_option").value = 14;
         set_max_Skill_construct();
@@ -458,7 +458,7 @@ function toggle_construct(){
 
     } else {
         content_construct.style.display = "block";
-        console.log("true");
+        // set everything to maximum
         set_min_lvl_construct();
         document.getElementById("rank_option").value = 1;
         set_min_Skill_construct();

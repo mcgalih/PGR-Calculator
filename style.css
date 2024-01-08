@@ -150,7 +150,7 @@ header ul {
     padding: 10px 10px;
     display: flex;
     align-items: center;
-    cursor: pointer;
+    cursor: default;
 }
 
 .navbar-text {
@@ -190,10 +190,8 @@ header ul {
     margin: 0 5%;
 }
 
-/* initial display */
-#menu-construct, #menu-cub, #menu-serum,
-#btn-calculate-wrapper, #result {
-    display: none;
+#menu-cub{
+    padding-top: 20px;
 }
 
 .head {
@@ -654,6 +652,7 @@ input[type=number] {
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;

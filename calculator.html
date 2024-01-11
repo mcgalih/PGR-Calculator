@@ -12,7 +12,7 @@
     <title>PGR Calculator</title>
 </head>
 
-<body id="top_page">
+<body>
     <header>
         <nav>
             <div class="navbar-title" id="nav-about">
@@ -28,7 +28,7 @@
             </div>
         </nav>
         <ul id="hamb-menu" class="h-0 font-body font-size-med">
-            <li class="hamb-list" id="nav-construct"><a href="#top_page">Resources</a></li>
+            <li class="hamb-list" id="nav-construct"><a>Resources</a></li>
             <li class="hamb-list" id="nav-serum"><a href="serum.html">Serum</a></li>
             <li class="hamb-list" id="nav-about"><a href="index.html">About</a></li>
         </ul>
@@ -94,10 +94,10 @@
                 <button id="custom-skill" class="minmax font-type-bold">CUSTOM</button>
             </div>
     
-            <div id="skills-wrapper" style="display: none;">
-                <div class="skills-item">
-                    <div class="skills-title">Red Orb</div>
-                    <div class="skills-input">
+            <div id="skills-wrapper" class="dont_show">
+                <div class="grid-item">
+                    <div class="grid-title">Red Orb</div>
+                    <div class="numInput-wrapper">
                         <!-- n = negative, s = skill, 1 = skill -->
                         <button class="input-num-button font-type-bold" id="ns1"
                         onclick='modIn(this)'> 
@@ -112,9 +112,9 @@
                     </div>
                 </div>
                 
-                <div class="skills-item">
-                    <div class="skills-title">Yellow Orb</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Yellow Orb</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns2"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -128,9 +128,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">Blue Orb</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Blue Orb</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns3"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -144,9 +144,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">Basic Atk</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Basic Atk</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns4"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -160,9 +160,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">Core</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Core</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns5"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -176,9 +176,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">Signature</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Signature</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns6"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -192,9 +192,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">QTE</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">QTE</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns7"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -208,9 +208,9 @@
                     </div>
                 </div>
                 
-                <div class="skills-item">
-                    <div class="skills-title">Class</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Class</div>
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="ns8"
                         onclick='modIn(this)'> 
                             <div>-</div>
@@ -224,9 +224,9 @@
                     </div>
                 </div>
     
-                <div class="skills-item">
-                    <div class="skills-title">Leader</div>
-                    <div class="skills-input">
+                <div class="grid-item">
+                    <div class="grid-title">Leader</div>
+                    <div class="numInput-wrapper">
                         <label for="skill_9">Upgraded</label>
                         <input type="checkbox" id="skill_9" class="skill-leader">
                     </div>
@@ -243,8 +243,8 @@
                 <button id="custom-memory" class="minmax font-type-bold">CUSTOM</button>
             </div>
     
-            <div id="memory-wrapper" style="display: none;">
-                <div class="memory-item">
+            <div id="memory-wrapper" class="dont_show">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m1" value="0" checked>
                         <input type="radio" name="m1" value="1">
@@ -267,7 +267,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm1"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -280,7 +280,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="memory-item">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m2" value="0" checked>
                         <input type="radio" name="m2" value="1">
@@ -303,7 +303,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm2"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -316,7 +316,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="memory-item">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m3" value="0" checked>
                         <input type="radio" name="m3" value="1">
@@ -339,7 +339,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm3"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -352,7 +352,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="memory-item">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m4" value="0" checked>
                         <input type="radio" name="m4" value="1">
@@ -375,7 +375,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm4"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -388,7 +388,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="memory-item">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m5" value="0" checked>
                         <input type="radio" name="m5" value="1">
@@ -411,7 +411,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm5"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -424,7 +424,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="memory-item">
+                <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m6" value="0" checked>
                         <input type="radio" name="m6" value="1">
@@ -447,7 +447,7 @@
                     onclick="mod_m_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nm6"
                         onclick='mod_m_level(this)'>
                             <div>-</div>
@@ -479,7 +479,7 @@
             </div>
     
             <div id="weapon-wrapper">
-                <div class="weapon-item" id="w5-container">
+                <div class="grid-item" id="w5-container">
                     <div style="display: none;">
                         <input type="radio" name="w5" value="0">
                         <input type="radio" name="w5" value="1">
@@ -501,7 +501,7 @@
                     onclick="mod_w_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nw5"
                         onclick='mod_w_level(this)'>
                             <div>-</div>
@@ -514,7 +514,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="weapon-item" id="w6-container">
+                <div class="grid-item" id="w6-container">
                     <div style="display: none;">
                         <input type="radio" name="w6" value="0" checked>
                         <input type="radio" name="w6" value="1">
@@ -536,7 +536,7 @@
                     onclick="mod_w_overclock(this)">
                         <div>OVERCLOCK</div>
                     </button> 
-                    <div class="memory-input">
+                    <div class="numInput-wrapper">
                         <button class="input-num-button font-type-bold" id="nw6"
                         onclick='mod_w_level(this)'>
                             <div>-</div>
@@ -554,7 +554,59 @@
             <div class="input-title">
                 <div class="shape-triangle"></div>
                 <span class="input-name">Leap :</span>
-                <span id="show_lvl_input"></span>
+                <button id="min-leap" class="minmax font-type-bold">MIN</button>
+                <span class="btn-separator font-type-bold">|</span>
+                <button id="max-leap" class="minmax font-type-bold minmax-toggle">MAX</button>
+                <span class="btn-separator font-type-bold">|</span>
+                <button id="custom-leap" class="minmax font-type-bold">CUSTOM</button>
+            </div>
+
+            <div id="leap-wrapper" class="dont_show">
+                <div class="grid-item">
+                    <div class="grid-title">Leap 1</div>
+                    <div class="numInput-wrapper">
+                        <button class="input-num-button font-type-bold" id="nl1"
+                        onclick='mod_lp_level(this)'>
+                            <div>-</div>
+                        </button>
+                        <input type="number" id="leap_1" class="InputNumber"
+                        value="18" min="0" max="18" onchange="imposeMinMax(this)">
+                        <button class="input-num-button font-type-bold" id="pl1"
+                        onclick='mod_lp_level(this)'> 
+                            <div>+</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-title">Leap 2</div>
+                    <div class="numInput-wrapper">
+                        <button class="input-num-button font-type-bold" id="nl2"
+                        onclick='mod_lp_level(this)'>
+                            <div>-</div>
+                        </button>
+                        <input type="number" id="leap_2" class="InputNumber"
+                        value="18" min="0" max="18" onchange="imposeMinMax(this)">
+                        <button class="input-num-button font-type-bold" id="pl2"
+                        onclick='mod_lp_level(this)'> 
+                            <div>+</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-title">Leap 3</div>
+                    <div class="numInput-wrapper">
+                        <button class="input-num-button font-type-bold" id="nl3"
+                        onclick='mod_lp_level(this)'>
+                            <div>-</div>
+                        </button>
+                        <input type="number" id="leap_3" class="InputNumber"
+                        value="18" min="0" max="18" onchange="imposeMinMax(this)">
+                        <button class="input-num-button font-type-bold" id="pl3"
+                        onclick='mod_lp_level(this)'> 
+                            <div>+</div>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="js/menu_construct.js"></script>
@@ -634,6 +686,16 @@
                 <img src="img/Item-WeaponOverclock-4star.png"
                 alt="Weapon Overclock Core II" title="Weapon Overclock Core II">
                 <div id="item_w_overclock_4star"></div>
+            </div>
+            <div id="leapWafer" class="result-dontshow">
+                <img src="img/Item-LeapWaferChip.png"
+                alt="Leap Wafer Chip" title="Leap Wafer Chip">
+                <div id="item_leap_wafer"></div>
+            </div>
+            <div id="auraBasicUnit" class="result-dontshow">
+                <img src="img/Item-AuraBasicUnit.png"
+                alt="Aura Basic Unit" title="Aura Basic Unit">
+                <div id="item_auraBasicUnit"></div>
             </div>
         </div>
     </div>

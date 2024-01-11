@@ -54,6 +54,7 @@ function set_min_lvl_construct() {
 const max_skill = document.getElementById("max-skill");
 const min_skill = document.getElementById("min-skill");
 const custom_skill = document.getElementById("custom-skill");
+const wrapper_skill = document.getElementById("skills-wrapper");
 
 max_skill.addEventListener("click", function () {
     set_max_Skill_construct();
@@ -71,7 +72,8 @@ function set_max_Skill_construct(){
         document.getElementById("skill_" + i).value = 18;
     }
     document.getElementById("skill_9").checked = true;
-    document.getElementById("skills-wrapper").style.display = "none";
+    wrapper_skill.classList.add("dont_show");
+    wrapper_skill.classList.remove("grid-wrapper");
 }
 
 function set_min_Skill_construct(){
@@ -82,14 +84,16 @@ function set_min_Skill_construct(){
         document.getElementById("skill_" + i).value = 1;
     }
     document.getElementById("skill_9").checked = false;
-    document.getElementById("skills-wrapper").style.display = "none";
+    wrapper_skill.classList.add("dont_show");
+    wrapper_skill.classList.remove("grid-wrapper");
 }
 
 custom_skill.addEventListener("click", function(){
     min_skill.classList.remove("minmax-toggle");
     max_skill.classList.remove("minmax-toggle");
     custom_skill.classList.add("minmax-toggle");
-    document.getElementById("skills-wrapper").style.display = "grid";
+    wrapper_skill.classList.remove("dont_show");
+    wrapper_skill.classList.add("grid-wrapper");
 })
 
 function imposeMinMax(el) {
@@ -125,6 +129,7 @@ function modIn(el) {
 const max_memory = document.getElementById("max-memory");
 const min_memory = document.getElementById("min-memory");
 const custom_memory = document.getElementById("custom-memory");
+const wrapper_memory = document.getElementById("memory-wrapper");
 
 for (let i = 1; i <= 6; i++) {
     // initial memory stamp display, overclock 0 -> display = block
@@ -145,7 +150,8 @@ function set_max_memory(){
     min_memory.classList.remove("minmax-toggle");
     max_memory.classList.add("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
-    document.getElementById("memory-wrapper").style.display = "none";
+    wrapper_memory.classList.add("dont_show");
+    wrapper_memory.classList.remove("grid-wrapper");
     //=== max value
     for (let i = 1; i <= 6; i++) {
         document.getElementsByName("m"+i)[4].checked = true;
@@ -161,7 +167,8 @@ function set_min_memory(){
     min_memory.classList.add("minmax-toggle");
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.remove("minmax-toggle");
-    document.getElementById("memory-wrapper").style.display = "none";
+    wrapper_memory.classList.add("dont_show");
+    wrapper_memory.classList.remove("grid-wrapper");
     //=== min value
     for (let i = 1; i <= 6; i++) {
         document.getElementsByName("m"+i)[0].checked = true;
@@ -177,7 +184,8 @@ custom_memory.addEventListener("click", function(){
     min_memory.classList.remove("minmax-toggle");
     max_memory.classList.remove("minmax-toggle");
     custom_memory.classList.add("minmax-toggle");
-    document.getElementById("memory-wrapper").style.display = "grid";
+    wrapper_memory.classList.remove("dont_show");
+    wrapper_memory.classList.add("grid-wrapper");
     //=== set to current value
     for (let i = 1; i <= 6; i++) {
         var val = document.getElementsByName("m"+i);
@@ -436,7 +444,64 @@ function minmax_weapon_btn_deselect() {
 }
 
 //============================== Leap ===============================//
+const max_leap = document.getElementById("max-leap");
+const min_leap = document.getElementById("min-leap");
+const custom_leap = document.getElementById("custom-leap");
+const wrapper_leap = document.getElementById("leap-wrapper");
 
+max_leap.addEventListener("click", function () {
+    set_max_leap();
+})
+
+min_leap.addEventListener("click", function () {
+    set_min_leap();
+})
+
+function set_max_leap(){
+    min_leap.classList.remove("minmax-toggle");
+    max_leap.classList.add("minmax-toggle");
+    custom_leap.classList.remove("minmax-toggle");
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById("leap_" + i).value = 18;
+    }
+    wrapper_leap.classList.add("dont_show");
+    wrapper_leap.classList.remove("grid-wrapper");
+}
+
+function set_min_leap(){
+    min_leap.classList.add("minmax-toggle");
+    max_leap.classList.remove("minmax-toggle");
+    custom_leap.classList.remove("minmax-toggle");
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById("leap_" + i).value = 0;
+    }
+    wrapper_leap.classList.add("dont_show");
+    wrapper_leap.classList.remove("grid-wrapper");
+}
+
+custom_leap.addEventListener("click", function(){
+    min_leap.classList.remove("minmax-toggle");
+    max_leap.classList.remove("minmax-toggle");
+    custom_leap.classList.add("minmax-toggle");
+    wrapper_leap.classList.remove("dont_show");
+    wrapper_leap.classList.add("grid-wrapper");
+})
+
+function mod_lp_level(el) {
+    var inId = el.id;
+    if (inId.charAt(0) == 'p'){
+        var targetId = 'leap_' + inId.charAt(2);
+        document.getElementById(targetId).value++;
+        // console.log("+"+targetId);
+        imposeMinMax(document.getElementById(targetId));
+    }
+    if (inId.charAt(0) == 'n') {
+        var targetId = 'leap_' + inId.charAt(2);
+        document.getElementById(targetId).value--;
+        // console.log("-"+targetId);
+        imposeMinMax(document.getElementById(targetId));
+    }
+}
 
 //====================== construct toggle ===============================//
 var toggle_construct_val = document.getElementById("toggle-construct");
@@ -445,7 +510,7 @@ var content_construct = document.getElementById("content-construct");
 function toggle_construct(){    
     if(toggle_construct_val.checked == false){
         content_construct.style.display = "none";
-        // set everything to minimum
+        // set everything to maximum
         set_max_lvl_construct();
         document.getElementById("rank_option").value = 14;
         set_max_Skill_construct();
@@ -455,10 +520,11 @@ function toggle_construct(){
         for (let i = 0; i < 2; i++) {
             if(weapon_rate[i].checked) set_max_weapon(weapon_rate[i].value);
         }
+        set_max_leap();
 
     } else {
         content_construct.style.display = "block";
-        // set everything to maximum
+        // set everything to minimum
         set_min_lvl_construct();
         document.getElementById("rank_option").value = 1;
         set_min_Skill_construct();
@@ -468,5 +534,6 @@ function toggle_construct(){
         for (let i = 0; i < 2; i++) {
             if(weapon_rate[i].checked) set_min_weapon(weapon_rate[i].value);
         }
+        set_min_leap();
     }
 }

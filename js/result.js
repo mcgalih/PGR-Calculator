@@ -122,6 +122,21 @@ arr_exp(w_max_lvl[3], 80, w5_overclock3_exp, sum_w5_overclock_exp);
 arr_exp(w_max_lvl[4], 100, w5_overclock4_exp, sum_w5_overclock_exp);
 const w5_exp_arr = [w5_overclock0_exp, w5_overclock1_exp, w5_overclock2_exp, w5_overclock3_exp, w5_overclock4_exp];
 
+//========================== CONSTRUCT LEAP ============================//
+// leap_lvl = [[leap wafer, aura basic unit, SP, cogs]]
+var leap_lvl = [[225,45,10,200000]]
+var leapWafer_needed = 0;
+var auraBasicUnit_needed = 0;
+
+for (let i = 1; i <= 17; i++) {
+    if (i == 8 || i == 17) {
+        leap_lvl.push(leap_lvl[0]);
+    } else {
+        leap_lvl.push([0,5,2,75000]);
+    }
+}
+// console.table(leap_lvl);
+
 function calculate() {
     // ============================== result view ==============================
     const view_result = document.getElementById("result");
@@ -136,6 +151,8 @@ function calculate() {
     const view_mOverclock4 = document.getElementById("memo_overclock_4star");
     const view_wOverclock3 = document.getElementById("weap_overclock_3star");
     const view_wOverclock4 = document.getElementById("weap_overclock_4star");
+    const view_leapWafer = document.getElementById("leapWafer");
+    const view_auraBasicUnit = document.getElementById("auraBasicUnit");
     const item_id_expPod = '#item_exp_pod';
     const item_id_skillPoint = '#item_skill_point';
     const item_id_cogs = '#item_cogs';
@@ -147,6 +164,8 @@ function calculate() {
     const item_id_mOverclock4 = '#item_m_overclock_4star';
     const item_id_wOverclock3 = '#item_w_overclock_3star';
     const item_id_wOverclock4 = '#item_w_overclock_4star';
+    const item_id_leapWafer = '#item_leap_wafer';
+    const item_id_auraBasicUnit = '#item_auraBasicUnit';
     view_result.style.display = "block";
 
     //=============================== Get value ===============================
@@ -163,7 +182,7 @@ function calculate() {
     }
     // console.table(skill_id_start);
 
-    //====== memory overclock 1-6 value
+    //====== memory 1-6 overclock value
     // memory id 0 doesn't exist, fill the element with 0
     var m_id_overclock_start = [0];
     var m_id_lvl_start = [0];
@@ -177,7 +196,8 @@ function calculate() {
         }
     }
 
-    //====== weapon overclock 5 and 6 stars value
+    //====== weapon 5 and 6 stars overclock value
+    var weapon_rate =  document.getElementsByName("weapon-rate");
     var w_lvl_start = [];
     var w_overclock_start = [];
     for (let stars = 5; stars <= 6; stars++) {
@@ -191,6 +211,14 @@ function calculate() {
     }
     // console.log("weapon 5 >> overclock = "+w_overclock_start[0]+", lvl = "+w_lvl_start[0]);
     // console.log("weapon 6 >> overclock = "+w_overclock_start[1]+", lvl = "+w_lvl_start[1]);
+
+    //====== Leap 1~3 value
+    var leap_id_start = [0];
+    for (let id = 1; id <= 3; id++) {
+        var name = '#leap_' + id;
+        leap_id_start[id] = parseInt(document.querySelector(name).value);
+    }
+
     // ============================ Construct Level ============================
     for (let i = lvl_start; i < lvl_exp.length; i++) {
         exp_pod_needed += lvl_exp[i];
@@ -219,7 +247,6 @@ function calculate() {
         cogs_needed += 25000;
         sp_needed += 3;
     }
-    show_item(view_skill_point, sp_needed, item_id_skillPoint);
 
     // =============================== memory ==================================
     for (let id = 1; id <= 6; id++) {
@@ -245,34 +272,36 @@ function calculate() {
 
     // =============================== weapon ==================================
     var total_w_exp = 0;
-    // weapon 5 stars
-    var overclock = w_overclock_start[0];
-    for (let lvl = w_lvl_start[0]; lvl < w_max_lvl[overclock]; lvl++) {
-        total_w_exp += w5_exp_arr[overclock][lvl];
-    }
+    if(weapon_rate[0].checked){
+        // weapon 5 stars
+        var overclock = w_overclock_start[0];
+        for (let lvl = w_lvl_start[0]; lvl < w_max_lvl[overclock]; lvl++) {
+            total_w_exp += w5_exp_arr[overclock][lvl];
+        }
 
-    for (let i = overclock + 1; i <= 4; i++) {
-        total_w_exp += sum_w5_overclock_exp[i];
-        cogs_needed += w5_overclock_cogs[i];
-        w_overclock_3star_needed += w5_overclock_mats[i][0];
-        w_overclock_4star_needed += w5_overclock_mats[i][1];
-        cmn_overclock_3star_needed += w5_overclock_mats[i][2];
-        cmn_overclock_4star_needed += w5_overclock_mats[i][3];
-    }
+        for (let i = overclock + 1; i <= 4; i++) {
+            total_w_exp += sum_w5_overclock_exp[i];
+            cogs_needed += w5_overclock_cogs[i];
+            w_overclock_3star_needed += w5_overclock_mats[i][0];
+            w_overclock_4star_needed += w5_overclock_mats[i][1];
+            cmn_overclock_3star_needed += w5_overclock_mats[i][2];
+            cmn_overclock_4star_needed += w5_overclock_mats[i][3];
+        }
+    } else if(weapon_rate[1].checked){
+        // weapon 6 stars
+        var overclock = w_overclock_start[1];
+        for (let lvl = w_lvl_start[1]; lvl < w_max_lvl[overclock]; lvl++) {
+            total_w_exp += w6_exp_arr[overclock][lvl];
+        }
 
-    // weapon 6 stars
-    overclock = w_overclock_start[1];
-    for (let lvl = w_lvl_start[1]; lvl < w_max_lvl[overclock]; lvl++) {
-        total_w_exp += w6_exp_arr[overclock][lvl];
-    }
-
-    for (let i = overclock + 1; i <= 4; i++) {
-        total_w_exp += sum_w6_overclock_exp[i];
-        cogs_needed += w6_overclock_cogs[i];
-        w_overclock_3star_needed += w6_overclock_mats[i][0];
-        w_overclock_4star_needed += w6_overclock_mats[i][1];
-        cmn_overclock_3star_needed += w6_overclock_mats[i][2];
-        cmn_overclock_4star_needed += w6_overclock_mats[i][3];
+        for (let i = overclock + 1; i <= 4; i++) {
+            total_w_exp += sum_w6_overclock_exp[i];
+            cogs_needed += w6_overclock_cogs[i];
+            w_overclock_3star_needed += w6_overclock_mats[i][0];
+            w_overclock_4star_needed += w6_overclock_mats[i][1];
+            cmn_overclock_3star_needed += w6_overclock_mats[i][2];
+            cmn_overclock_4star_needed += w6_overclock_mats[i][3];
+        }
     }
 
     w_enhancer_needed += round_up(total_w_exp,300);
@@ -281,9 +310,23 @@ function calculate() {
     show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
     show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
     show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
+
+    // ================================= Leap ===================================
+    for (let id = 1; id <= 3; id++) {
+        for (let lvl = leap_id_start[id]; lvl < leap_lvl.length; lvl++) {
+            leapWafer_needed += leap_lvl[lvl][0];
+            auraBasicUnit_needed += leap_lvl[lvl][1];
+            sp_needed += leap_lvl[lvl][2];
+            cogs_needed += leap_lvl[lvl][3];
+        }
+    }
+    show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
+    show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
+
     // ============================== total cogs ================================
     show_item(view_cogs, cogs_needed, item_id_cogs);
-
+    
+    show_item(view_skill_point, sp_needed, item_id_skillPoint);
     show_item(view_cmnOverclock3, cmn_overclock_3star_needed, item_id_cmnOverclock3);
     show_item(view_cmnOverclock4, cmn_overclock_4star_needed, item_id_cmnOverclock4);
 
@@ -299,6 +342,8 @@ function calculate() {
     m_overclock_4star_needed = 0;
     w_overclock_3star_needed = 0;
     w_overclock_4star_needed = 0;
+    leapWafer_needed = 0;
+    auraBasicUnit_needed = 0;
 }
 
 function round_up(numerator, denominator) {

@@ -274,6 +274,7 @@ function mod_m_level(el) {
 //============================== Weapon ===============================//
 const max_weapon = document.getElementById("max-weapon");
 const min_weapon = document.getElementById("min-weapon");
+const custom_weapon = document.getElementById("custom-weapon");
 const weapon_5 = document.getElementById("5stars-weapon");
 const weapon_6 = document.getElementById("6stars-weapon");
 const weapon_5_view = document.getElementById("w5-container");
@@ -281,15 +282,20 @@ const weapon_6_view = document.getElementById("w6-container");
 var weapon_rate =  document.getElementsByName("weapon-rate");
 
 weapon_5_view.style.display = "none";
+weapon_6_view.style.display = "none";
+// minimum overclock weapon 6
 for (let j = 1; j <= 4; j++) {
     document.getElementsByClassName("w6-overclock-img")[j].style.display = "none";
 }
+// maximum overclock weapon 5
 for (let j = 0; j <= 3; j++) {
     document.getElementsByClassName("w5-overclock-img")[j].style.display = "none";
 }
 
 min_weapon.addEventListener("click", function () {
     min_weapon_btn_select();
+    weapon_5_view.style.display = "none";
+    weapon_6_view.style.display = "none";
     for (let i = 0; i < 2; i++) {
         if(weapon_rate[i].checked) set_min_weapon(weapon_rate[i].value);
     }
@@ -297,8 +303,21 @@ min_weapon.addEventListener("click", function () {
 
 max_weapon.addEventListener("click", function () {
     max_weapon_btn_select();
+    weapon_5_view.style.display = "none";
+    weapon_6_view.style.display = "none";
     for (let i = 0; i < 2; i++) {
         if(weapon_rate[i].checked) set_max_weapon(weapon_rate[i].value);
+    }
+})
+
+custom_weapon.addEventListener("click", function () {
+    custom_weapon_btn_select();
+    if(weapon_rate[0].checked){
+        weapon_5_view.style.display = "flex";
+        weapon_6_view.style.display = "none";
+    } else if(weapon_rate[1].checked){
+        weapon_5_view.style.display = "none";
+        weapon_6_view.style.display = "flex";
     }
 })
 
@@ -306,7 +325,7 @@ weapon_5.addEventListener("click", function () {
     weapon_rate[0].checked = true;
     weapon_5.classList.add("minmax-toggle");
     weapon_6.classList.remove("minmax-toggle");
-    weapon_5_view.style.display = "flex";
+    weapon_5_view.style.display = "none";
     weapon_6_view.style.display = "none";
     min_weapon_btn_select();
     set_min_weapon(weapon_rate[0].value);
@@ -318,7 +337,7 @@ weapon_6.addEventListener("click", function () {
     weapon_5.classList.remove("minmax-toggle");
     weapon_6.classList.add("minmax-toggle");
     weapon_5_view.style.display = "none";
-    weapon_6_view.style.display = "flex";
+    weapon_6_view.style.display = "none";
     min_weapon_btn_select();
     set_min_weapon(weapon_rate[1].value);
     set_max_weapon(weapon_rate[0].value);
@@ -347,50 +366,19 @@ function mod_w_overclock(el){
         case 0:
             input_num.setAttribute("max",25);
             if (parseInt(input_num.value) > 25) input_num.value = 25;
-            if (parseInt(input_num.value) == 1) min_weapon_btn_select();
-            else minmax_weapon_btn_deselect();
             break;
         case 1:
             input_num.setAttribute("max",30);
-            minmax_weapon_btn_deselect();
             break;
         case 2:
             input_num.setAttribute("max",35);
-            minmax_weapon_btn_deselect();
             break;
         case 3:
             input_num.setAttribute("max",40);
-            minmax_weapon_btn_deselect();
             break;
         case 4:
             input_num.setAttribute("max",45);
-            if (parseInt(input_num.value) == 45) max_weapon_btn_select();
-            else minmax_weapon_btn_deselect();
             break;
-    }
-}
-
-function imposeMinMaxW(el) {
-    if (el.value != '') {
-        if (parseInt(el.value) < parseInt(el.min)) {
-            el.value = el.min;
-        }
-        if (parseInt(el.value) > parseInt(el.max)) {
-            el.value = el.max;
-        }
-        if (parseInt(el.value) == 45) {
-            max_weapon_btn_select();
-        } else if (parseInt(el.value) == 1){
-            var overclockw5 = document.getElementsByName("w5");
-            var overclockw6 = document.getElementsByName("w6");
-            if(overclockw5[0].checked || overclockw6[0].checked){
-                min_weapon_btn_select();
-            }
-        } else {
-            minmax_weapon_btn_deselect();
-        }
-    } else {
-        el.value = el.min;
     }
 }
 
@@ -400,13 +388,13 @@ function mod_w_level(el) {
         var targetId = 'weapon_' + inId.charAt(2);
         document.getElementById(targetId).value++;
         // console.log("+"+targetId);
-        imposeMinMaxW(document.getElementById(targetId));
+        imposeMinMax(document.getElementById(targetId));
     }
     if (inId.charAt(0) == 'n') {
         var targetId = 'weapon_' + inId.charAt(2);
         document.getElementById(targetId).value--;
         // console.log("-"+targetId);
-        imposeMinMaxW(document.getElementById(targetId));
+        imposeMinMax(document.getElementById(targetId));
     }
 }
 
@@ -431,16 +419,19 @@ function set_max_weapon(weapon_numId) {
 function min_weapon_btn_select() {
     min_weapon.classList.add("minmax-toggle");
     max_weapon.classList.remove("minmax-toggle");
+    custom_weapon.classList.remove("minmax-toggle");
 }
 
 function max_weapon_btn_select() {
     min_weapon.classList.remove("minmax-toggle");
     max_weapon.classList.add("minmax-toggle");
+    custom_weapon.classList.remove("minmax-toggle");
 }
 
-function minmax_weapon_btn_deselect() {
+function custom_weapon_btn_select() {
     min_weapon.classList.remove("minmax-toggle");
     max_weapon.classList.remove("minmax-toggle");
+    custom_weapon.classList.add("minmax-toggle");
 }
 
 //============================== Leap ===============================//

@@ -473,9 +473,14 @@
                 <span class="btn-separator font-type-bold">|</span>
                 <button id="6stars-weapon" class="minmax font-type-bold minmax-toggle">6&#9733;</button>
                 <div class="weap-btn-separator"></div>
-                <button id="min-weapon" class="minmax font-type-bold minmax-toggle">MIN</button>
-                <span class="btn-separator font-type-bold">|</span>
-                <button id="max-weapon" class="minmax font-type-bold">MAX</button>
+                <div id="weapon-valEdit">
+                    <div id="weapon-minmax">
+                        <button id="min-weapon" class="minmax font-type-bold minmax-toggle">MIN</button>
+                        <span class="btn-separator font-type-bold">|</span>
+                        <button id="max-weapon" class="minmax font-type-bold">MAX</button>
+                    </div>
+                    <button id="custom-weapon" class="minmax font-type-bold">CUSTOM</button>
+                </div>
             </div>
     
             <div id="weapon-wrapper">
@@ -507,7 +512,7 @@
                             <div>-</div>
                         </button>
                         <input type="number" id="weapon_5"  class="InputNumber"
-                        value="45" min="1" max="45" onchange="imposeMinMaxW(this)">
+                        value="45" min="1" max="45" onchange="imposeMinMax(this)">
                         <button class="input-num-button font-type-bold" id="pw5"
                         onclick='mod_w_level(this)'> 
                             <div>+</div>
@@ -542,7 +547,7 @@
                             <div>-</div>
                         </button>
                         <input type="number" id="weapon_6"  class="InputNumber"
-                        value="1" min="1" max="25" onchange="imposeMinMaxW(this)">
+                        value="1" min="1" max="25" onchange="imposeMinMax(this)">
                         <button class="input-num-button font-type-bold" id="pw6"
                         onclick='mod_w_level(this)'> 
                             <div>+</div>

@@ -183,7 +183,6 @@ function calculate() {
     // console.table(skill_id_start);
 
     //====== memory 1-6 overclock value
-    // memory id 0 doesn't exist, fill the element with 0
     var m_id_overclock_start = [0];
     var m_id_lvl_start = [0];
     for (let id = 1; id <= 6; id++) {
@@ -224,7 +223,6 @@ function calculate() {
         exp_pod_needed += lvl_exp[i];
     }
     var qty_exp_pod_L = round_up(exp_pod_needed, item_exp_pod_L);
-    show_item(view_exp_pod, qty_exp_pod_L, item_id_expPod);
 
     // ============================ Construct Rank =============================
     for (let rank = rank_start; rank < rank_cogs.length; rank++) {
@@ -266,9 +264,6 @@ function calculate() {
         m_enhancer_needed += round_up(total_m_exp,300);
     }
     cogs_needed += m_enhancer_needed * 3000;
-    show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
-    show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
-    show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
 
     // =============================== weapon ==================================
     var total_w_exp = 0;
@@ -307,10 +302,6 @@ function calculate() {
     w_enhancer_needed += round_up(total_w_exp,300);
     cogs_needed += w_enhancer_needed * 3000;
 
-    show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
-    show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
-    show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
-
     // ================================= Leap ===================================
     for (let id = 1; id <= 3; id++) {
         for (let lvl = leap_id_start[id]; lvl < leap_lvl.length; lvl++) {
@@ -320,15 +311,21 @@ function calculate() {
             cogs_needed += leap_lvl[lvl][3];
         }
     }
-    show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
-    show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
 
-    // ============================== total cogs ================================
+    // ============================== show result ================================
     show_item(view_cogs, cogs_needed, item_id_cogs);
-    
     show_item(view_skill_point, sp_needed, item_id_skillPoint);
+    show_item(view_exp_pod, qty_exp_pod_L, item_id_expPod);
+    show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
+    show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
+    show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
     show_item(view_cmnOverclock3, cmn_overclock_3star_needed, item_id_cmnOverclock3);
     show_item(view_cmnOverclock4, cmn_overclock_4star_needed, item_id_cmnOverclock4);
+    show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
+    show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
+    show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
+    show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
+    show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
 
     // reset
     exp_pod_needed = 0;

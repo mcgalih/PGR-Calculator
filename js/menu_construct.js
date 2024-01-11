@@ -56,13 +56,8 @@ const min_skill = document.getElementById("min-skill");
 const custom_skill = document.getElementById("custom-skill");
 const wrapper_skill = document.getElementById("skills-wrapper");
 
-max_skill.addEventListener("click", function () {
-    set_max_Skill_construct();
-})
-
-min_skill.addEventListener("click", function () {
-    set_min_Skill_construct();
-})
+max_skill.addEventListener("click", set_max_Skill_construct);
+min_skill.addEventListener("click", set_min_Skill_construct);
 
 function set_max_Skill_construct(){
     min_skill.classList.remove("minmax-toggle");
@@ -138,13 +133,8 @@ for (let i = 1; i <= 6; i++) {
     }
 }
 
-max_memory.addEventListener("click", function () {
-    set_max_memory();
-})
-
-min_memory.addEventListener("click", function () {
-    set_min_memory();
-})
+max_memory.addEventListener("click", set_max_memory);
+min_memory.addEventListener("click", set_min_memory);
 
 function set_max_memory(){
     min_memory.classList.remove("minmax-toggle");
@@ -440,13 +430,8 @@ const min_leap = document.getElementById("min-leap");
 const custom_leap = document.getElementById("custom-leap");
 const wrapper_leap = document.getElementById("leap-wrapper");
 
-max_leap.addEventListener("click", function () {
-    set_max_leap();
-})
-
-min_leap.addEventListener("click", function () {
-    set_min_leap();
-})
+max_leap.addEventListener("click", set_max_leap);
+min_leap.addEventListener("click", set_min_leap);
 
 function set_max_leap(){
     min_leap.classList.remove("minmax-toggle");
@@ -501,30 +486,7 @@ var content_construct = document.getElementById("content-construct");
 function toggle_construct(){    
     if(toggle_construct_val.checked == false){
         content_construct.style.display = "none";
-        // set everything to maximum
-        set_max_lvl_construct();
-        document.getElementById("rank_option").value = 14;
-        set_max_Skill_construct();
-        set_max_memory();
-
-        max_weapon_btn_select();
-        for (let i = 0; i < 2; i++) {
-            if(weapon_rate[i].checked) set_max_weapon(weapon_rate[i].value);
-        }
-        set_max_leap();
-
     } else {
         content_construct.style.display = "block";
-        // set everything to minimum
-        set_min_lvl_construct();
-        document.getElementById("rank_option").value = 1;
-        set_min_Skill_construct();
-        set_min_memory();
-
-        min_weapon_btn_select();
-        for (let i = 0; i < 2; i++) {
-            if(weapon_rate[i].checked) set_min_weapon(weapon_rate[i].value);
-        }
-        set_min_leap();
     }
 }

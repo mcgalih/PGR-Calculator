@@ -167,7 +167,32 @@ function calculate() {
     const item_id_leapWafer = '#item_leap_wafer';
     const item_id_auraBasicUnit = '#item_auraBasicUnit';
     view_result.style.display = "block";
+    var toggle_construct_val = document.getElementById("toggle-construct");
 
+    if(toggle_construct_val.checked == true){
+        calculate_construct();
+    }
+
+    // ============================== show result ================================
+    console.log(cogs_needed);
+    show_item(view_cogs, cogs_needed, item_id_cogs);
+    show_item(view_skill_point, sp_needed, item_id_skillPoint);
+    show_item(view_exp_pod, exp_pod_needed, item_id_expPod);
+    show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
+    show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
+    show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
+    show_item(view_cmnOverclock3, cmn_overclock_3star_needed, item_id_cmnOverclock3);
+    show_item(view_cmnOverclock4, cmn_overclock_4star_needed, item_id_cmnOverclock4);
+    show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
+    show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
+    show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
+    show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
+    show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
+
+    reset_value();
+}
+
+function calculate_construct() {
     //=============================== Get value ===============================
     //====== construct lvl value
     var lvl_start = parseInt(document.querySelector('#lvl_input').value);
@@ -222,7 +247,7 @@ function calculate() {
     for (let i = lvl_start; i < lvl_exp.length; i++) {
         exp_pod_needed += lvl_exp[i];
     }
-    var qty_exp_pod_L = round_up(exp_pod_needed, item_exp_pod_L);
+    exp_pod_needed = round_up(exp_pod_needed, item_exp_pod_L);
 
     // ============================ Construct Rank =============================
     for (let rank = rank_start; rank < rank_cogs.length; rank++) {
@@ -311,23 +336,9 @@ function calculate() {
             cogs_needed += leap_lvl[lvl][3];
         }
     }
+}
 
-    // ============================== show result ================================
-    show_item(view_cogs, cogs_needed, item_id_cogs);
-    show_item(view_skill_point, sp_needed, item_id_skillPoint);
-    show_item(view_exp_pod, qty_exp_pod_L, item_id_expPod);
-    show_item(view_mEnhancer, m_enhancer_needed, item_id_mEnhancer);
-    show_item(view_mOverclock3, m_overclock_3star_needed, item_id_mOverclock3);
-    show_item(view_mOverclock4, m_overclock_4star_needed, item_id_mOverclock4);
-    show_item(view_cmnOverclock3, cmn_overclock_3star_needed, item_id_cmnOverclock3);
-    show_item(view_cmnOverclock4, cmn_overclock_4star_needed, item_id_cmnOverclock4);
-    show_item(view_wEnhancer, w_enhancer_needed, item_id_wEnhancer);
-    show_item(view_wOverclock3, w_overclock_3star_needed, item_id_wOverclock3);
-    show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
-    show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
-    show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
-
-    // reset
+function reset_value(){
     exp_pod_needed = 0;
     sp_needed = 0;
     cogs_needed = 0;

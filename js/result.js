@@ -139,7 +139,6 @@ for (let i = 1; i <= 17; i++) {
 
 function calculate() {
     // ============================== result view ==============================
-    const view_result = document.getElementById("result");
     const view_exp_pod = document.getElementById("exp_pod");
     const view_skill_point = document.getElementById("skill_point");
     const view_cogs = document.getElementById("cogs");
@@ -166,9 +165,8 @@ function calculate() {
     const item_id_wOverclock4 = '#item_w_overclock_4star';
     const item_id_leapWafer = '#item_leap_wafer';
     const item_id_auraBasicUnit = '#item_auraBasicUnit';
-    view_result.style.display = "block";
+    
     var toggle_construct_val = document.getElementById("toggle-construct");
-
     if(toggle_construct_val.checked == true){
         calculate_construct();
     }

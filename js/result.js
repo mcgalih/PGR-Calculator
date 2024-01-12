@@ -52,28 +52,27 @@ var m_overclock_3star_needed = 0;
 var m_overclock_4star_needed = 0;
 
 function arr_exp(max_lvl, start_exp, arr_exp, total_enhancer) {
-    var m_start_exp = start_exp;
     var start_i = 1;
     var end_i = 5;
-    var sum_m_exp = 0;
-    var multiple = max_lvl/5
+    var sum_exp = 0;
+    var multiple = max_lvl/5;
 
     for (let i = 1; i <= multiple; i++){
         for (j = start_i; j <= end_i; j++){
             if (j == max_lvl) {
-                var enhancer = round_up(sum_m_exp,300);
+                var enhancer = round_up(sum_exp,300);
                 total_enhancer.push(enhancer);
                 break;
             }
-            arr_exp.push(m_start_exp);
-            sum_m_exp += m_start_exp;
+            arr_exp.push(start_exp);
+            sum_exp += start_exp;
         }
         start_i = end_i + 1;
         end_i += 5;
         if (max_lvl > 35){
-            if (end_i <= 30) m_start_exp += 10;
-            else m_start_exp += 20;
-        } else m_start_exp += 10;
+            if (end_i <= 30) start_exp += 10;
+            else start_exp += 20;
+        } else start_exp += 10;
     }
 }
 

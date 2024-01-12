@@ -37,7 +37,7 @@ const skill_cogs = [
 ];
 
 //========================== CONSTRUCT MEMORY ============================//
-const sum_m_overclock_exp = [];
+const arr_m_Enhancer = [];
 const m_overclock0_exp = [0];
 const m_overclock1_exp = [0];
 const m_overclock2_exp = [0];
@@ -51,7 +51,7 @@ var m_enhancer_needed = 0;
 var m_overclock_3star_needed = 0;
 var m_overclock_4star_needed = 0;
 
-function arr_exp(max_lvl, start_exp, arr_exp, arr_sum_exp) {
+function arr_exp(max_lvl, start_exp, arr_exp, total_enhancer) {
     var m_start_exp = start_exp;
     var start_i = 1;
     var end_i = 5;
@@ -61,7 +61,8 @@ function arr_exp(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     for (let i = 1; i <= multiple; i++){
         for (j = start_i; j <= end_i; j++){
             if (j == max_lvl) {
-                arr_sum_exp.push(sum_m_exp);
+                var enhancer = round_up(sum_m_exp,300);
+                total_enhancer.push(enhancer);
                 break;
             }
             arr_exp.push(m_start_exp);
@@ -76,13 +77,13 @@ function arr_exp(max_lvl, start_exp, arr_exp, arr_sum_exp) {
     }
 }
 
-arr_exp(m_max_lvl[0], 50, m_overclock0_exp, sum_m_overclock_exp);
-arr_exp(m_max_lvl[1], 70, m_overclock1_exp, sum_m_overclock_exp);
-arr_exp(m_max_lvl[2], 90, m_overclock2_exp, sum_m_overclock_exp);
-arr_exp(m_max_lvl[3], 120, m_overclock3_exp, sum_m_overclock_exp);
-arr_exp(m_max_lvl[4], 150, m_overclock4_exp, sum_m_overclock_exp);
+arr_exp(m_max_lvl[0], 50, m_overclock0_exp, arr_m_Enhancer);
+arr_exp(m_max_lvl[1], 70, m_overclock1_exp, arr_m_Enhancer);
+arr_exp(m_max_lvl[2], 90, m_overclock2_exp, arr_m_Enhancer);
+arr_exp(m_max_lvl[3], 120, m_overclock3_exp, arr_m_Enhancer);
+arr_exp(m_max_lvl[4], 150, m_overclock4_exp, arr_m_Enhancer);
 const m_exp_arr = [m_overclock0_exp, m_overclock1_exp, m_overclock2_exp, m_overclock3_exp, m_overclock4_exp];
-// console.log(sum_m_overclock_exp);
+// console.log(arr_m_Enhancer);
 // console.log(m_overclock0_exp);
 // console.log(m_exp_arr);
 
@@ -98,8 +99,8 @@ const w5_overclock2_exp = [0];
 const w5_overclock3_exp = [0];
 const w5_overclock4_exp = [0];
 const w_max_lvl = [25, 30, 35, 40, 45];
-const sum_w6_overclock_exp = [];
-const sum_w5_overclock_exp = [];
+const arr_w6_Enhancer = [];
+const arr_w5_Enhancer = [];
 const w6_overclock_cogs = [0, 10000, 20000, 30000, 40000];
 const w5_overclock_cogs = [0, 8000, 16000, 24000, 32000];
 const w6_overclock_mats = [[0,0,0,0], [8,0,0,0], [8,0,8,0], [6,6,6,6], [6,10,6,10]];
@@ -108,18 +109,18 @@ var w_enhancer_needed = 0;
 var w_overclock_3star_needed = 0;
 var w_overclock_4star_needed = 0;
 
-arr_exp(w_max_lvl[0], 50, w6_overclock0_exp, sum_w6_overclock_exp);
-arr_exp(w_max_lvl[1], 70, w6_overclock1_exp, sum_w6_overclock_exp);
-arr_exp(w_max_lvl[2], 90, w6_overclock2_exp, sum_w6_overclock_exp);
-arr_exp(w_max_lvl[3], 120, w6_overclock3_exp, sum_w6_overclock_exp);
-arr_exp(w_max_lvl[4], 150, w6_overclock4_exp, sum_w6_overclock_exp);
+arr_exp(w_max_lvl[0], 50, w6_overclock0_exp, arr_w6_Enhancer);
+arr_exp(w_max_lvl[1], 70, w6_overclock1_exp, arr_w6_Enhancer);
+arr_exp(w_max_lvl[2], 90, w6_overclock2_exp, arr_w6_Enhancer);
+arr_exp(w_max_lvl[3], 120, w6_overclock3_exp, arr_w6_Enhancer);
+arr_exp(w_max_lvl[4], 150, w6_overclock4_exp, arr_w6_Enhancer);
 const w6_exp_arr = [w6_overclock0_exp, w6_overclock1_exp, w6_overclock2_exp, w6_overclock3_exp, w6_overclock4_exp];
 
-arr_exp(w_max_lvl[0], 30, w5_overclock0_exp, sum_w5_overclock_exp);
-arr_exp(w_max_lvl[1], 40, w5_overclock1_exp, sum_w5_overclock_exp);
-arr_exp(w_max_lvl[2], 60, w5_overclock2_exp, sum_w5_overclock_exp);
-arr_exp(w_max_lvl[3], 80, w5_overclock3_exp, sum_w5_overclock_exp);
-arr_exp(w_max_lvl[4], 100, w5_overclock4_exp, sum_w5_overclock_exp);
+arr_exp(w_max_lvl[0], 30, w5_overclock0_exp, arr_w5_Enhancer);
+arr_exp(w_max_lvl[1], 40, w5_overclock1_exp, arr_w5_Enhancer);
+arr_exp(w_max_lvl[2], 60, w5_overclock2_exp, arr_w5_Enhancer);
+arr_exp(w_max_lvl[3], 80, w5_overclock3_exp, arr_w5_Enhancer);
+arr_exp(w_max_lvl[4], 100, w5_overclock4_exp, arr_w5_Enhancer);
 const w5_exp_arr = [w5_overclock0_exp, w5_overclock1_exp, w5_overclock2_exp, w5_overclock3_exp, w5_overclock4_exp];
 
 //========================== CONSTRUCT LEAP ============================//
@@ -172,7 +173,6 @@ function calculate() {
     }
 
     // ============================== show result ================================
-    console.log(cogs_needed);
     show_item(view_cogs, cogs_needed, item_id_cogs);
     show_item(view_skill_point, sp_needed, item_id_skillPoint);
     show_item(view_exp_pod, exp_pod_needed, item_id_expPod);
@@ -276,15 +276,15 @@ function calculate_construct() {
         for (let lvl = m_id_lvl_start[id]; lvl < m_max_lvl[overclock]; lvl++) {
             total_m_exp += m_exp_arr[overclock][lvl];
         }
+        m_enhancer_needed += round_up(total_m_exp,300);
         for (let i = overclock + 1; i <= 4; i++) {
-            total_m_exp += sum_m_overclock_exp[i];
+            m_enhancer_needed += arr_m_Enhancer[i];
             cogs_needed += m_overclock_cogs[i];
             m_overclock_3star_needed += m_overclock_mats[i][0];
             m_overclock_4star_needed += m_overclock_mats[i][1];
             cmn_overclock_3star_needed += m_overclock_mats[i][2];
             cmn_overclock_4star_needed += m_overclock_mats[i][3];
         }
-        m_enhancer_needed += round_up(total_m_exp,300);
     }
     cogs_needed += m_enhancer_needed * 3000;
 
@@ -296,9 +296,9 @@ function calculate_construct() {
         for (let lvl = w_lvl_start[0]; lvl < w_max_lvl[overclock]; lvl++) {
             total_w_exp += w5_exp_arr[overclock][lvl];
         }
-
+        w_enhancer_needed += round_up(total_w_exp,300);
         for (let i = overclock + 1; i <= 4; i++) {
-            total_w_exp += sum_w5_overclock_exp[i];
+            w_enhancer_needed += arr_w5_Enhancer[i];
             cogs_needed += w5_overclock_cogs[i];
             w_overclock_3star_needed += w5_overclock_mats[i][0];
             w_overclock_4star_needed += w5_overclock_mats[i][1];
@@ -311,9 +311,9 @@ function calculate_construct() {
         for (let lvl = w_lvl_start[1]; lvl < w_max_lvl[overclock]; lvl++) {
             total_w_exp += w6_exp_arr[overclock][lvl];
         }
-
+        w_enhancer_needed += round_up(total_w_exp,300);
         for (let i = overclock + 1; i <= 4; i++) {
-            total_w_exp += sum_w6_overclock_exp[i];
+            w_enhancer_needed += arr_w6_Enhancer[i];
             cogs_needed += w6_overclock_cogs[i];
             w_overclock_3star_needed += w6_overclock_mats[i][0];
             w_overclock_4star_needed += w6_overclock_mats[i][1];
@@ -321,8 +321,6 @@ function calculate_construct() {
             cmn_overclock_4star_needed += w6_overclock_mats[i][3];
         }
     }
-
-    w_enhancer_needed += round_up(total_w_exp,300);
     cogs_needed += w_enhancer_needed * 3000;
 
     // ================================= Leap ===================================

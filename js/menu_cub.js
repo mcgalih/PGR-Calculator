@@ -1,3 +1,4 @@
+//========================= Level ===============================//
 const max_lvlcub = document.getElementById("max-lvlcub");
 const min_lvlcub = document.getElementById("min-lvlcub");
 const custom_lvlcub = document.getElementById("custom-lvlcub");
@@ -107,25 +108,68 @@ function mod_cub_overclock(){
 }
 
 function mod_cub_level(el) {
-    if (el.id == "pcub"){
-        document.getElementById("cub_lvl").value++;
-    }
-    if (el.id == "ncub") {
-        document.getElementById("cub_lvl").value--;
-    }
+    if (el.id == "pcub") document.getElementById("cub_lvl").value++;
+    if (el.id == "ncub") document.getElementById("cub_lvl").value--;
     imposeMinMax(document.getElementById("cub_lvl"));
 }
 
 function imposeMinMax(el) {
     if (el.value != '') {
-        if (parseInt(el.value) < parseInt(el.min)) {
-            el.value = el.min;
-        }
-        if (parseInt(el.value) > parseInt(el.max)) {
-            el.value = el.max;
-        }
-    } else {
-        el.value = el.min;
+        if (parseInt(el.value) < parseInt(el.min)) el.value = el.min;
+        if (parseInt(el.value) > parseInt(el.max)) el.value = el.max;
+    } else el.value = el.min;
+}
+
+//========================= skills ===============================//
+const max_cubskill = document.getElementById("max-skillcub");
+const min_cubskill = document.getElementById("min-skillcub");
+const custom_cubskill = document.getElementById("custom-skillcub");
+const wrapper_cubskill = document.getElementById("cubskill-wrapper");
+
+max_cubskill.addEventListener("click", set_max_Skill_cub);
+min_cubskill.addEventListener("click", set_min_Skill_cub);
+
+function set_max_Skill_cub(){
+    min_cubskill.classList.remove("minmax-toggle");
+    max_cubskill.classList.add("minmax-toggle");
+    custom_cubskill.classList.remove("minmax-toggle");
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById("cubSkill_" + i).value = 5;
+    }
+    wrapper_cubskill.classList.add("dont_show");
+    wrapper_cubskill.classList.remove("grid-wrapper");
+}
+
+function set_min_Skill_cub(){
+    min_cubskill.classList.add("minmax-toggle");
+    max_cubskill.classList.remove("minmax-toggle");
+    custom_cubskill.classList.remove("minmax-toggle");
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById("cubSkill_" + i).value = 1;
+    }
+    wrapper_cubskill.classList.add("dont_show");
+    wrapper_cubskill.classList.remove("grid-wrapper");
+}
+
+custom_cubskill.addEventListener("click", function(){
+    min_cubskill.classList.remove("minmax-toggle");
+    max_cubskill.classList.remove("minmax-toggle");
+    custom_cubskill.classList.add("minmax-toggle");
+    wrapper_cubskill.classList.remove("dont_show");
+    wrapper_cubskill.classList.add("grid-wrapper");
+})
+
+function mod_cub_skill(el) {
+    var inId = el.id;
+    if (inId.charAt(0) == 'p'){
+        var targetId = 'cubSkill_' + inId.charAt(2);
+        document.getElementById(targetId).value++;
+        imposeMinMax(document.getElementById(targetId));
+    }
+    if (inId.charAt(0) == 'n') {
+        var targetId = 'cubSkill_' + inId.charAt(2);
+        document.getElementById(targetId).value--;
+        imposeMinMax(document.getElementById(targetId));
     }
 }
 

@@ -58,7 +58,6 @@ header {
     display: flex;
     flex-direction: column;
     background-color: var(--color-gray);
-    position: fixed;
     width: 100%;
     z-index: 999;
 }
@@ -187,7 +186,7 @@ header ul {
 .menu-section {
     display: flex;
     flex-direction: column;
-    padding-top: 60px;
+    padding-top: 20px;
     margin: 0 5%;
 }
 
@@ -612,13 +611,13 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 /* =============== RESULT =================== */
 
 #result {
     margin: 0 5%;
-    padding-top: 50px;
     padding-bottom: 150px;
 }
 

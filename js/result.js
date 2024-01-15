@@ -182,6 +182,9 @@ arr_expCub(cub_max_lvl[2], 60, cub_overclock2_exp, cubExpItem);
 arr_expCub(cub_max_lvl[3], 80, cub_overclock3_exp, cubExpItem);
 const cubExp_arr = [cub_overclock0_exp, cub_overclock1_exp, cub_overclock2_exp, cub_overclock3_exp];
 
+const cubskill_point = [0, 60, 60, 60, 60];
+const cubskill_cogs = [0, 20000, 20000, 20000, 20000];
+
 function calculate() {
     // ============================== result view ==============================
     const view_exp_pod = document.getElementById("exp_pod");
@@ -401,6 +404,13 @@ function calculate_cub() {
     }
     // console.log("cub lvl = ",cub_lvl_start, "|| cub overclock = ",cub_overclock_start);
 
+    var cubskill_id_start = [0];
+    for (let id = 1; id <= 5; id++) {
+        var name = '#cubSkill_' + id;
+        cubskill_id_start[id] = parseInt(document.querySelector(name).value);
+    }
+    // console.log(cubskill_id_start);
+
     //========================== level ==================================
     var total_cubExp = 0;
     var overclock = cub_overclock_start;
@@ -416,6 +426,18 @@ function calculate_cub() {
     }
     cogs_needed += cubExpItem_needed * 5000;
 
+    //========================== skills ==================================
+    for (let id = 1; id <= 5; id++) {
+        for (let lvl = cubskill_id_start[id]; lvl < cubskill_cogs.length; lvl++) {
+            cogs_needed += cubskill_cogs[lvl];
+        }
+    }
+
+    for (let id = 1; id <= 5; id++) {
+        for (let lvl = cubskill_id_start[id]; lvl < cubskill_point.length; lvl++) {
+            cubSP_needed += cubskill_point[lvl];
+        }
+    }
 }
 
 function reset_value(){

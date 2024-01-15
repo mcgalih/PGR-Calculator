@@ -137,6 +137,12 @@ for (let i = 1; i <= 17; i++) {
 }
 // console.table(leap_lvl);
 
+//================================ CUB =================================//
+var cubExp_needed = 0;
+var cubSP_needed = 0;
+var cubOverclock3_needed = 0;
+var cubOverclock4_needed = 0;
+
 function calculate() {
     // ============================== result view ==============================
     const view_exp_pod = document.getElementById("exp_pod");
@@ -152,6 +158,10 @@ function calculate() {
     const view_wOverclock4 = document.getElementById("weap_overclock_4star");
     const view_leapWafer = document.getElementById("leapWafer");
     const view_auraBasicUnit = document.getElementById("auraBasicUnit");
+    const view_cubExp = document.getElementById("cubExp");
+    const view_cubSP = document.getElementById("cubSP");
+    const view_cubOverclock3 = document.getElementById("cubOverclock_3star");
+    const view_cubOverclock4 = document.getElementById("cubOverclock_4star");
     const item_id_expPod = '#item_exp_pod';
     const item_id_skillPoint = '#item_skill_point';
     const item_id_cogs = '#item_cogs';
@@ -165,11 +175,15 @@ function calculate() {
     const item_id_wOverclock4 = '#item_w_overclock_4star';
     const item_id_leapWafer = '#item_leap_wafer';
     const item_id_auraBasicUnit = '#item_auraBasicUnit';
+    const item_id_cubExp = '#item_cubExp'
+    const item_id_cubSP = '#item_cubSP'
+    const item_id_cubOverclock3 = '#item_cubOverclock3star'
+    const item_id_cubOverclock4 = '#item_cubOverclock4star'
     
     var toggle_construct_val = document.getElementById("toggle-construct");
-    if(toggle_construct_val.checked == true){
-        calculate_construct();
-    }
+    var toggle_cub_val = document.getElementById("toggle-cub");
+    if(toggle_construct_val.checked == true) calculate_construct();
+    if(toggle_cub_val.checked == true) calculate_cub();
 
     // ============================== show result ================================
     show_item(view_cogs, cogs_needed, item_id_cogs);
@@ -185,6 +199,10 @@ function calculate() {
     show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
     show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
     show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
+    show_item(view_cubExp, cubExp_needed, item_id_cubExp);
+    show_item(view_cubSP, cubSP_needed, item_id_cubSP);
+    show_item(view_cubOverclock3, cubOverclock3_needed, item_id_cubOverclock3);
+    show_item(view_cubOverclock4, cubOverclock4_needed, item_id_cubOverclock4);
 
     reset_value();
 }
@@ -333,6 +351,18 @@ function calculate_construct() {
     }
 }
 
+function calculate_cub() {
+    var cub_lvl_start = parseInt(document.querySelector("#cub_lvl").value);
+    var cub_overclock_start = 0;
+    for (let overclock = 0; overclock <= 3; overclock++) {
+        var cub_overclock_val = document.getElementsByName("cuboverclock");
+        if(cub_overclock_val[overclock].checked){
+            cub_overclock_start = parseInt(cub_overclock_val[overclock].value);
+        }
+    }
+    console.log("cub lvl = ",cub_lvl_start, "|| cub overclock = ",cub_overclock_start);
+}
+
 function reset_value(){
     exp_pod_needed = 0;
     sp_needed = 0;
@@ -347,6 +377,10 @@ function reset_value(){
     w_overclock_4star_needed = 0;
     leapWafer_needed = 0;
     auraBasicUnit_needed = 0;
+    cubExp_needed = 0;
+    cubSP_needed = 0;
+    cubOverclock3_needed = 0;
+    cubOverclock4_needed = 0;
 }
 
 function round_up(numerator, denominator) {

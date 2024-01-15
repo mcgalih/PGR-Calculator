@@ -623,7 +623,58 @@
             <div class="shape-line"></div>
             <img src="img/icon_cub.png" alt="PGR Cub" class="head-img">
             <div class="head-title font-type-med">CUB</div>
+            <label class="switch-btn">
+                <input type="checkbox" id="toggle-cub" onclick="toggle_cub()">
+                <span class="switch-toggle"></span>
+            </label>
         </div>
+
+        <div id="content-cub">
+            <div class="input-title">
+                <div class="shape-triangle"></div>
+                <span class="input-name">Level :</span>
+                <button id="min-lvlcub" class="minmax font-type-bold minmax-toggle">MIN</button>
+                <span class="btn-separator font-type-bold">|</span>
+                <button id="max-lvlcub" class="minmax font-type-bold">MAX</button>
+                <span class="btn-separator font-type-bold">|</span>
+                <button id="custom-lvlcub" class="minmax font-type-bold">CUSTOM</button>
+            </div>
+
+            <div id="cublvl-wrapper" class="dont_show">
+                <div style="display: none;">
+                    <input type="radio" name="cuboverclock" value="0" checked>
+                    <input type="radio" name="cuboverclock" value="1">
+                    <input type="radio" name="cuboverclock" value="2">
+                    <input type="radio" name="cuboverclock" value="3">
+                </div>
+                <div class="img-cub-wrapper">
+                    <img class="cub-img" src="img/cub_yuanye.png">
+                    <div class="cub-overclock-wrapper">
+                        <img class="cub-overclock-img" src="img/overclock stamp 0.png">
+                        <img class="cub-overclock-img" src="img/overclock stamp 1.png">
+                        <img class="cub-overclock-img" src="img/overclock stamp 2.png">
+                        <img class="cub-overclock-img" src="img/overclock stamp 3.png">
+                    </div>
+                </div>
+                <button id="cub-btn-overclock" class="cub-btn-overclock font-type-bold"
+                onclick="mod_cub_overclock()">
+                    <div>OVERCLOCK</div>
+                </button> 
+                <div class="numInput-wrapper">
+                    <button class="input-num-button font-type-bold" id="ncub"
+                    onclick='mod_cub_level(this)'>
+                        <div>-</div>
+                    </button>
+                    <input type="number" id="cub_lvl"  class="InputNumber"
+                    value="1" min="1" max="10" onchange="imposeMinMax(this)">
+                    <button class="input-num-button font-type-bold" id="pcub"
+                    onclick='mod_cub_level(this)'> 
+                        <div>+</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="js/menu_cub.js"></script>
     </div>
 
     <div id="btn-calculate-wrapper">
@@ -701,6 +752,26 @@
                 <img src="img/Item-AuraBasicUnit.png"
                 alt="Aura Basic Unit" title="Aura Basic Unit">
                 <div id="item_auraBasicUnit"></div>
+            </div>
+            <div id="cubExp" class="result-dontshow">
+                <img src="img/Item-IntegratedCUBEXPL.png"
+                alt="Integrated CUB EXP L" title="Integrated CUB EXP L">
+                <div id="item_cubExp"></div>
+            </div>
+            <div id="cubSP" class="result-dontshow">
+                <img src="img/Item-SupportSkillComponent.png"
+                alt="Support Skill Component" title="Support Skill Component">
+                <div id="item_cubSP"></div>
+            </div>
+            <div id="cubOverclock_3star" class="result-dontshow">
+                <img src="img/Item-SupportOverclockBundleS.png"
+                alt="Support Overclock Bundle (S)" title="Support Overclock Bundle (S)">
+                <div id="item_cubOverclock3star"></div>
+            </div>
+            <div id="cubOverclock_4star" class="result-dontshow">
+                <img src="img/Item-SupportOverclockBundleL.png"
+                alt="Support Overclock Bundle (L)" title="Support Overclock Bundle (L)">
+                <div id="item_cubOverclock4star"></div>
             </div>
         </div>
     </div>

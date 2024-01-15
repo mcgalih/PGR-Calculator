@@ -549,33 +549,33 @@ input[type=number] {
     justify-content: center;
 }
 
-.img-memory-wrapper, .img-weapon-wrapper{
+.img-memory-wrapper, .img-weapon-wrapper, .img-cub-wrapper{
     position: relative;
     width: fit-content;
 }
 
-.mem-slot-img, .w-img {
+.mem-slot-img, .w-img, .cub-img{
     position: relative;
     width: 100px;
 }
 
-.mem-overclock-wrapper, .w-overclock-wrapper{
+.mem-overclock-wrapper, .w-overclock-wrapper, .cub-overclock-wrapper{
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.mem-overclock-wrapper img, .w-overclock-wrapper img{
+.mem-overclock-wrapper img, .w-overclock-wrapper img, .cub-overclock-wrapper img{
     height: 18px;
 }
 
-.m-btn-overclock, .w-btn-overclock{
+.m-btn-overclock, .w-btn-overclock, .cub-btn-overclock{
     background-color: var(--color-red);
     border-color: var(--color-red-light);
     cursor: pointer;
 }
 
-.m-btn-overclock div, .w-btn-overclock div{
+.m-btn-overclock div, .w-btn-overclock div, .cub-btn-overclock div{
     color: white;
     font-size: 12px;
     padding: 4px 2px;
@@ -605,6 +605,13 @@ input[type=number] {
 
 #weapon-wrapper {
     margin-bottom: 30px;
+}
+
+/* ================ CUB ===================== */
+.cublvl-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* =============== RESULT =================== */

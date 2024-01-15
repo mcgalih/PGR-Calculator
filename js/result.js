@@ -138,10 +138,49 @@ for (let i = 1; i <= 17; i++) {
 // console.table(leap_lvl);
 
 //================================ CUB =================================//
-var cubExp_needed = 0;
+var cubExpItem_needed = 0;
 var cubSP_needed = 0;
 var cubOverclock3_needed = 0;
 var cubOverclock4_needed = 0;
+
+const cub_overclock0_exp = [0];
+const cub_overclock1_exp = [0];
+const cub_overclock2_exp = [0];
+const cub_overclock3_exp = [0];
+const cub_max_lvl = [10, 15, 25, 30];
+const cubExpItem =[];
+const cub_overclock_cogs = [0, 10000, 20000, 30000];
+const cub_overclock_mats = [[0, 0], [36,12], [60, 20], [96, 32]];
+
+function arr_expCub(max_lvl, start_exp, arr_exp, total_expItem) {
+    var start_i = 1;
+    var end_i = 5;
+    var sum_exp = 0;
+    var multiple = max_lvl/5;
+
+    for (let i = 1; i <= multiple; i++){
+        for (j = start_i; j <= end_i; j++){
+            if (j == max_lvl) {
+                var item = round_up(sum_exp,500);
+                total_expItem.push(item);
+                break;
+            }
+            arr_exp.push(start_exp);
+            sum_exp += start_exp;
+        }
+        start_i = end_i + 1;
+        end_i += 5;
+        if (max_lvl > 15){
+            if(end_i > 20) start_exp += 0;
+            else start_exp += 10;
+        } else start_exp += 10;
+    }
+}
+arr_expCub(cub_max_lvl[0], 30, cub_overclock0_exp, cubExpItem);
+arr_expCub(cub_max_lvl[1], 40, cub_overclock1_exp, cubExpItem);
+arr_expCub(cub_max_lvl[2], 60, cub_overclock2_exp, cubExpItem);
+arr_expCub(cub_max_lvl[3], 80, cub_overclock3_exp, cubExpItem);
+const cubExp_arr = [cub_overclock0_exp, cub_overclock1_exp, cub_overclock2_exp, cub_overclock3_exp];
 
 function calculate() {
     // ============================== result view ==============================
@@ -199,7 +238,7 @@ function calculate() {
     show_item(view_wOverclock4, w_overclock_4star_needed, item_id_wOverclock4);
     show_item(view_leapWafer, leapWafer_needed, item_id_leapWafer);
     show_item(view_auraBasicUnit, auraBasicUnit_needed, item_id_auraBasicUnit);
-    show_item(view_cubExp, cubExp_needed, item_id_cubExp);
+    show_item(view_cubExp, cubExpItem_needed, item_id_cubExp);
     show_item(view_cubSP, cubSP_needed, item_id_cubSP);
     show_item(view_cubOverclock3, cubOverclock3_needed, item_id_cubOverclock3);
     show_item(view_cubOverclock4, cubOverclock4_needed, item_id_cubOverclock4);
@@ -360,7 +399,23 @@ function calculate_cub() {
             cub_overclock_start = parseInt(cub_overclock_val[overclock].value);
         }
     }
-    console.log("cub lvl = ",cub_lvl_start, "|| cub overclock = ",cub_overclock_start);
+    // console.log("cub lvl = ",cub_lvl_start, "|| cub overclock = ",cub_overclock_start);
+
+    //========================== level ==================================
+    var total_cubExp = 0;
+    var overclock = cub_overclock_start;
+    for (let lvl = cub_lvl_start; lvl < cub_max_lvl[overclock]; lvl++) {
+        total_cubExp += cubExp_arr[overclock][lvl];
+    }
+    cubExpItem_needed += round_up(total_cubExp,500);
+    for (let i = overclock + 1; i <= 3; i++) {
+        cubExpItem_needed += cubExpItem[i];
+        cogs_needed += cub_overclock_cogs[i];
+        cubOverclock3_needed += cub_overclock_mats[i][0];
+        cubOverclock4_needed += cub_overclock_mats[i][1];
+    }
+    cogs_needed += cubExpItem_needed * 5000;
+
 }
 
 function reset_value(){
@@ -377,7 +432,7 @@ function reset_value(){
     w_overclock_4star_needed = 0;
     leapWafer_needed = 0;
     auraBasicUnit_needed = 0;
-    cubExp_needed = 0;
+    cubExpItem_needed = 0;
     cubSP_needed = 0;
     cubOverclock3_needed = 0;
     cubOverclock4_needed = 0;

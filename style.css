@@ -191,7 +191,7 @@ header ul {
 }
 
 #menu-cub{
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
 .head {
@@ -714,6 +714,18 @@ input[type=number] {
     height: 2px;
     margin-left: 5px;
     background-color: var(--color-red);
+}
+
+#full-serum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#full-serum img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
 }
 
 .btn-calculate {

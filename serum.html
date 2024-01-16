@@ -41,11 +41,26 @@
             <img src="img/icon_serum.png" alt="PGR Serum" class="head-img">
             <div class="head-title font-type-med">SERUM</div>
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit, autem debitis nisi ut nostrum expedita architecto accusantium provident reprehenderit at non, minima, dignissimos numquam facere perspiciatis corrupti accusamus similique?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti nihil reprehenderit eum ipsam sed consequatur ipsum officiis excepturi, voluptates ex velit, aspernatur non quidem dolore cum doloremque accusantium a!
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, ex? Delectus tempora sit exercitationem hic, reprehenderit voluptate eius dolorem enim, architecto repellat error ullam unde, qui fugit assumenda facere maxime.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident nostrum, reiciendis exercitationem ipsa fugiat itaque, quod quaerat officia rerum, possimus tempora alias ex laudantium labore veritatis eos. Nam, repellat totam?
 
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Current Serum :</span>
+            <span id="show_serum"></span>
+        </div>
+        
+        <div class="level-wrapper">
+            <button id="serum_dec" type="button" onclick="decreaseValue()"
+            class="slider-button font-type-bold">-</button>
+            <input id="serum_input" type="range" min="0" max="160" value="0" step="1"/>
+            <button id="serum_inc" type="button" onclick="increaseValue()"
+            class="slider-button font-type-bold">+</button>
+            <script src="js/menu_serum.js"></script>
+        </div>
+
+        <div class="input-title">
+            <div class="shape-triangle"></div>
+            <span class="input-name">Event Stages : &#40;soon&#41;</span>
+        </div>
     </div>
 
     <div id="btn-calculate-wrapper">
@@ -63,10 +78,14 @@
             <div class="shape-line"></div>
             <div class="head-title font-type-med result-title">RESULT</div>
         </div>
-        <div class="result-wrapper font-body">
-            <div id="cogs" class="result-dontshow">
-                <img src="img/Item-Cogs.png" alt="Cogs" title="Cogs">
-                <div id="item_cogs"></div>
+        <div class="serum-result font-body">
+            <div id="full-serum" style="display: none;">
+                <img src="img/lucia serum.png">
+                <span>Your serum already full</span>
+            </div>
+            <div id="serum-time" style="display: none;">
+                Your serum will be fully restored at:
+                <div id="serum-time-remaining" style="font-family: consolas;"></div>
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@
                 <span id="show_lvl_input"></span>
             </div>
             
-            <div class="level-wrapper">
+            <div class="level-wrapper max-content">
                 <button id="lvl_dec" type="button" onclick="decreaseValue()"
                 class="slider-button font-type-bold">-</button>
                 <input id="lvl_input" type="range" min="1" max="80" value="1" step="1"/>
@@ -94,7 +94,7 @@
                 <button id="custom-skill" class="minmax font-type-bold">CUSTOM</button>
             </div>
     
-            <div id="skills-wrapper" class="dont_show">
+            <div id="skills-wrapper" class="dont_show max-content">
                 <div class="grid-item">
                     <div class="grid-title">Red Orb</div>
                     <div class="numInput-wrapper">
@@ -243,7 +243,7 @@
                 <button id="custom-memory" class="minmax font-type-bold">CUSTOM</button>
             </div>
     
-            <div id="memory-wrapper" class="dont_show">
+            <div id="memory-wrapper" class="dont_show max-content">
                 <div class="grid-item">
                     <div style="display: none;">
                         <input type="radio" name="m1" value="0" checked>
@@ -478,6 +478,7 @@
                         <button id="min-weapon" class="minmax font-type-bold minmax-toggle">MIN</button>
                         <span class="btn-separator font-type-bold">|</span>
                         <button id="max-weapon" class="minmax font-type-bold">MAX</button>
+                        <span id="custom-w-separator" class="btn-separator font-type-bold">|</span>
                     </div>
                     <button id="custom-weapon" class="minmax font-type-bold">CUSTOM</button>
                 </div>
@@ -566,7 +567,7 @@
                 <button id="custom-leap" class="minmax font-type-bold">CUSTOM</button>
             </div>
 
-            <div id="leap-wrapper" class="dont_show">
+            <div id="leap-wrapper" class="dont_show max-content">
                 <div class="grid-item">
                     <div class="grid-title">Leap 1</div>
                     <div class="numInput-wrapper">
@@ -684,7 +685,7 @@
                 <button id="custom-skillcub" class="minmax font-type-bold">CUSTOM</button>
             </div>
 
-            <div id="cubskill-wrapper" class="dont_show">
+            <div id="cubskill-wrapper" class="dont_show max-content">
                 <div class="grid-item">
                     <div class="grid-title">Skill 1</div>
                     <div class="numInput-wrapper">

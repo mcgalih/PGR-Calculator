@@ -59,7 +59,6 @@ header {
     flex-direction: column;
     background-color: var(--color-gray);
     width: 100%;
-    z-index: 999;
 }
 
 header nav {
@@ -128,6 +127,7 @@ header ul {
     background-color: var(--color-gray-light);
     overflow: hidden;
     transition: height 0.3s;
+    cursor: pointer;
 }
 
 #hamb-menu.open {
@@ -602,6 +602,10 @@ input[type=number] {
     align-items: center;
 }
 
+#custom-w-separator{
+    display: none;
+}
+
 #weapon-wrapper {
     margin-bottom: 30px;
 }
@@ -612,6 +616,16 @@ input[type=number] {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+}
+
+/* serum */
+#serum-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 700px;
 }
 
 /* =============== RESULT =================== */
@@ -626,9 +640,8 @@ input[type=number] {
 }
 
 .result-wrapper{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 90px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 
@@ -639,6 +652,7 @@ input[type=number] {
 .result-show{
     display: flex;
     flex-direction: column;
+    width: 75px;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 10px;
@@ -743,6 +757,83 @@ input[type=number] {
     background-color: var(--color-red);
 }
 
-/* @media (min-width: 600px) {
+@media (min-width: 500px){
+    .head-title {
+        font-size: 25px;
+    }
 
-} */
+    .menu-section {
+        font-size: 20px;
+    }
+
+    #custom-w-separator{
+        display:inline;
+    }
+
+    button {
+        font-size: 15px;
+    }
+
+    .btn-calculate {
+        font-size: 20px;
+    }
+
+    #weapon-minmax-wrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .serum-result{
+        font-size: 20px;
+    }
+
+    #full-serum img{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 600px) {
+    header {
+        flex-direction: row;
+    }
+
+    #hamb-icon {
+        display: none;
+    }
+
+    #hamb-menu {
+        background-color: inherit;
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+    }
+
+    #hamb-menu.open {
+        height: fit-content;
+    }
+
+    .max-content {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .result-wrapper {
+        gap: 15px;
+    }
+
+    .result-show {
+        width: 110px;
+    }
+
+    .result-show img {
+        width: 70px;
+    }
+
+    .result-show div {
+        font-size: 16px;
+    }
+}

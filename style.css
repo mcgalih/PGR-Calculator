@@ -757,6 +757,12 @@ input[type=number] {
     background-color: var(--color-red);
 }
 
+#logo-pgr {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
 @media (min-width: 500px){
     .head-title {
         font-size: 25px;

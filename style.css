@@ -760,7 +760,39 @@ input[type=number] {
 #logo-pgr {
     width: 80%;
     max-width: 600px;
+    min-width: 250px;
     margin: 20px auto;
+}
+
+#menu-about p{
+    margin: 7px 0;
+}
+
+#offical-site {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.link-item {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+}
+
+#offical-site span{
+    color: var(--color-red-light);
+}
+
+#offical-site a{
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+#offical-site a:hover{
+    color: var(--color-red-light);
 }
 
 @media (min-width: 500px){
